@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-ene-2016 0:13:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.Facturador.modelo.Registroproveeedor" table="registroproveeedor" catalog="ejercom">
+        <id name="rut" type="int">
+            <column name="RUT" />
+            <generator class="assigned" />
+        </id>
+        <property name="razonSoc" type="string">
+            <column name="RazonSoc" length="50" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="20" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="20" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="Ciudad" length="20" not-null="true" />
+        </property>
+        <property name="telefono" type="int">
+            <column name="Telefono" not-null="true" />
+        </property>
+        <property name="fax" type="int">
+            <column name="Fax" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-ene-2016 0:13:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.Facturador.modelo.Registroproducto" table="registroproducto" catalog="ejercom">
+        <id name="codigo" type="string">
+            <column name="Codigo" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="50" />
+        </property>
+        <property name="precio" type="string">
+            <column name="Precio" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
