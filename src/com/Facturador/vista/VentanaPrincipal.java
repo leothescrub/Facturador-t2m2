@@ -19,7 +19,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		//sapoooooooooooooooooooooo  
+		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
 		lblFondo.setBounds(0, 0, 1008, 729);
