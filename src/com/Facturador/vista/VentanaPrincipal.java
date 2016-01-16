@@ -78,8 +78,8 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		contentPane.setLayout(null);
 		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
-		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
-		lblFondo.setBounds(0, 0, 1008, 693);
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo.png")));
+		lblFondo.setBounds(0, -115, 1018, 707);
 		contentPane.add(lblFondo);
 	}
 }
