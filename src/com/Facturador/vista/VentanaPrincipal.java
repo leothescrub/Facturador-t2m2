@@ -76,7 +76,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/carrito-de-compra.gif")));
-		lblNewLabel.setBounds(328, 122, 372, 276);
+		lblNewLabel.setBounds(230, 104, 372, 276);
 		contentPane.add(lblNewLabel);
 		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
