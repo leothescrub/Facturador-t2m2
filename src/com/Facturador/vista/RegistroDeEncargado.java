@@ -11,14 +11,15 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class RegistroDeEncargado extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNomEncargado;
-	private JTextField textApeEncsr;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textApeEncargado;
+	private JTextField textUser;
+	private JTextField textPass;
 
 	/**
 	 * Launch the application.
@@ -55,20 +56,32 @@ public class RegistroDeEncargado extends JFrame {
 		lblUsername.setBounds(47, 144, 101, 14);
 		contentPane.add(lblUsername);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(142, 143, 124, 20);
-		contentPane.add(textField_2);
+		textUser = new JTextField();
+		textUser.setColumns(10);
+		textUser.setBounds(142, 143, 124, 20);
+		contentPane.add(textUser);
 		
-		textApeEncsr = new JTextField();
-		textApeEncsr.setBounds(142, 107, 124, 20);
-		contentPane.add(textApeEncsr);
-		textApeEncsr.setColumns(10);
+		textApeEncargado = new JTextField();
+		textApeEncargado.setBounds(142, 107, 124, 20);
+		contentPane.add(textApeEncargado);
+		textApeEncargado.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(142, 176, 124, 20);
-		contentPane.add(textField_3);
+		textPass = new JTextField();
+		textPass.setColumns(10);
+		textPass.setBounds(142, 176, 124, 20);
+		contentPane.add(textPass);
+		
+		JButton btnEncarCancel = new JButton("CANCELAR");
+		btnEncarCancel.setForeground(new Color(255, 0, 0));
+		btnEncarCancel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
+		btnEncarCancel.setBounds(10, 231, 101, 36);
+		contentPane.add(btnEncarCancel);
+		
+		JButton btnEncarGuardar = new JButton("GUARDAR");
+		btnEncarGuardar.setForeground(new Color(255, 0, 0));
+		btnEncarGuardar.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
+		btnEncarGuardar.setBounds(208, 231, 101, 36);
+		contentPane.add(btnEncarGuardar);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(RegistroDeEncargado.class.getResource("/com/Facturador/images/encarga111.png")));
