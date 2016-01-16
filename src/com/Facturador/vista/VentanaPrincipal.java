@@ -19,9 +19,10 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	private JPanel contentPane;
 	private JMenuItem mntmNewMenuItem;
 	public VentanaPrincipal() {
+		setResizable(false);
 		setTitle("Facturador A.R.R.E.C.H.O"); //Se crea el objeto
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 768);
+		setBounds(100, 100, 800, 600);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(Color.CYAN);
@@ -33,8 +34,8 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnNewMenu.setFont(new Font("Goudy Old Style", Font.PLAIN, 14));
 		menuBar.add(mnNewMenu);
 		
-		mntmNewMenuItem = new JMenuItem("Registrar Encargado");
-		mnNewMenu.add(mntmNewMenuItem);
+		JMenuItem mntmRegistrarProbedor = new JMenuItem("Registrar proveedor");
+		mnNewMenu.add(mntmRegistrarProbedor);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registar Cliente");
 		mnNewMenu.add(mntmNewMenuItem_1);
@@ -63,6 +64,9 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnOpcionesDeAdministrador.setFont(new Font("Goudy Old Style", Font.PLAIN, 14));
 		menuBar.add(mnOpcionesDeAdministrador);
 		
+		mntmNewMenuItem = new JMenuItem("Registrar Encargado");
+		mnOpcionesDeAdministrador.add(mntmNewMenuItem);
+		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("New menu item");
 		mnOpcionesDeAdministrador.add(mntmNewMenuItem_5);
 		
@@ -72,12 +76,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/carrito-de-compra.gif")));
-		lblNewLabel.setBounds(230, 104, 372, 276);
-		contentPane.add(lblNewLabel);
 		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
