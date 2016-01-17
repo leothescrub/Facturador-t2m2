@@ -6,22 +6,29 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.Facturador.controlador.ControlRegistrarCliente;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegistrarCliente extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textClienApellido;
-	private JTextField textClienNombre;
-	private JTextField textClienCedu;
-	private JTextField textClienTelf;
-	private JTextField textClienDirec;
-	private JButton butGuarClien;
+	public static JTextField textClienApellido;
+	public static JTextField textClienNombre;
+	public static JTextField textClienCedu;
+	public static JTextField textClienTelf;
+	public static JTextField textClienDirec;
+	public static JButton butGuarClien;
 
 	/**
 	 * Launch the application.
@@ -87,38 +94,55 @@ public class RegistrarCliente extends JFrame {
 		contentPane.add(lblDireccion);
 		
 		JButton butCanClien = new JButton("CANCELAR");
+		butCanClien.addActionListener(new ControlRegistrarCliente (this,"CancelCliente"));
 		butCanClien.setForeground(Color.RED);
 		butCanClien.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
 		butCanClien.setBounds(29, 252, 101, 36);
 		contentPane.add(butCanClien);
 		
 		butGuarClien = new JButton("GUARDAR");
+		butGuarClien.addActionListener(new ControlRegistrarCliente (this,"GuardCliente"));
 		butGuarClien.setForeground(Color.RED);
 		butGuarClien.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
 		butGuarClien.setBounds(178, 252, 101, 36);
 		contentPane.add(butGuarClien);
 		
 		textClienApellido = new JTextField();
+		RestrictedTextField restriApell = new RestrictedTextField(textClienApellido);
+		restriApell.setOnlyText(true);
+		restriApell.setLimit(20);
 		textClienApellido.setColumns(10);
 		textClienApellido.setBounds(137, 93, 124, 20);
 		contentPane.add(textClienApellido);
 		
 		textClienNombre = new JTextField();
+		RestrictedTextField restriNom = new RestrictedTextField(textClienNombre);
+		restriNom.setOnlyText(true);
+		restriNom.setLimit(20);
 		textClienNombre.setColumns(10);
 		textClienNombre.setBounds(137, 58, 124, 20);
 		contentPane.add(textClienNombre);
 		
 		textClienCedu = new JTextField();
+		RestrictedTextField restriCed = new RestrictedTextField(textClienCedu);
+		restriCed.setOnlyNums(true);
+		restriCed.setLimit(8);
 		textClienCedu.setColumns(10);
 		textClienCedu.setBounds(137, 131, 124, 20);
 		contentPane.add(textClienCedu);
 		
 		textClienTelf = new JTextField();
+		RestrictedTextField restriTel = new RestrictedTextField(textClienTelf);
+		restriTel.setOnlyNums(true);
+		restriTel.setLimit(12);
 		textClienTelf.setColumns(10);
 		textClienTelf.setBounds(137, 171, 124, 20);
 		contentPane.add(textClienTelf);
 		
 		textClienDirec = new JTextField();
+		RestrictedTextField restriDirecc = new RestrictedTextField(textClienDirec);
+		restriDirecc.setOnlyText(true);
+		restriDirecc.setLimit(40);
 		textClienDirec.setColumns(10);
 		textClienDirec.setBounds(137, 212, 172, 20);
 		contentPane.add(textClienDirec);

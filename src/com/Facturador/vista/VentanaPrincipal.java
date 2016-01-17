@@ -75,6 +75,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnNewMenu.add(mntmRegistrarProbedor);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registrar Cliente");
+		mntmNewMenuItem_1.addActionListener(new ControlVentanaPrincipal(this, "RegisClien"));
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Registrar producto");
@@ -104,6 +105,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		menuBar.add(mnOpcionesDeAdministrador);
 		
 		mntmNewMenuItem = new JMenuItem("Registrar Encargado");
+		mntmNewMenuItem.addActionListener(new ControlVentanaPrincipal(this, "RegisEncar"));
 		mnOpcionesDeAdministrador.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("New menu item");

@@ -21,6 +21,7 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 			ClasePrincipal q = new ClasePrincipal(); //se instancia la claseprincipal
 			
 			
+			               //COMPRA
 			
 			if(this.cha.equals("ItenCompra")){//se compara el texto que entro por el constructor esto da la ubicacion del evento
 				q.VentPrin.paneVenta.setVisible(false);
@@ -31,6 +32,8 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				q.VentPrin.paneCompra.setVisible(false);
 			}
 			
+							//VENTA
+			
 			if(this.cha.equals("butCancVenta")){ //Agregado listener para cancelar venta
 				q.VentPrin.paneVenta.setVisible(false);
 			}
@@ -39,6 +42,20 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				q.VentPrin.paneVenta.setVisible(true);
 				q.VentPrin.paneCompra.setVisible(false);
 			}
+			
+					//REGISTRO DE ENCARGADO
+			
+			if(this.cha.equals("RegisEncar")){
+				q.encar.setVisible(true);
+				q.VentPrin.setVisible(false);
+			}		
+			
+					//REGISTRO DE CLIENTE
+			if(this.cha.equals("RegisClien")){
+				q.clien.setVisible(true);
+				//q.VentPrin.setVisible(false);
+			}	
+			
 			
 		}
 
