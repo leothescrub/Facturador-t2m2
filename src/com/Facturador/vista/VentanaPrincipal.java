@@ -19,19 +19,30 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
-	private JPanel contentPane;
+	private JPanel PanePrincipal;
 	private JMenuItem mntmNewMenuItem;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField textEncarCompra;
+	private JTextField textFechCompr;
+	private JTextField textIdProvCompra;
+	private JTextField textNomCompra;
+	private JTextField textRifCompra;
+	private JTextField textEmpreCompra;
+	private JTextField textIdProduCompra;
+	private JTextField textDescriCompra;
+	private JTextField textPresioCompra;
+	private JTextField textCantiCompra;
 	private JTable table;
+	private JTextField textEncarVenta;
+	private JTextField textFechVenta;
+	private JTextField textCeduVenta;
+	private JTextField textNombVenta;
+	private JTextField textTlfVenta;
+	private JTextField textDireccVenta;
+	private JTextField textIdProVenta;
+	private JTextField textDirecVenta;
+	private JTextField textPrecVenta;
+	private JTextField textCantVenta;
+	private JTable tableVenta;
 	public VentanaPrincipal() {
 		setResizable(false);
 		setTitle("Facturador A.R.R.E.C.H.O"); //Se crea el objeto
@@ -86,123 +97,123 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("New menu item");
 		mnOpcionesDeAdministrador.add(mntmNewMenuItem_6);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		PanePrincipal = new JPanel();
+		PanePrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(PanePrincipal);
+		PanePrincipal.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setVisible(false);
-		panel.setBounds(0, 0, 794, 535);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel paneCompra = new JPanel();
+		paneCompra.setVisible(false);
+		paneCompra.setBounds(0, 0, 794, 535);
+		PanePrincipal.add(paneCompra);
+		paneCompra.setLayout(null);
 		
 		JLabel lblEncargado = new JLabel("Encargado:");
 		lblEncargado.setBounds(210, 69, 68, 14);
-		panel.add(lblEncargado);
+		paneCompra.add(lblEncargado);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(278, 67, 119, 17);
-		panel.add(textField);
-		textField.setColumns(10);
+		textEncarCompra = new JTextField();
+		textEncarCompra.setEditable(false);
+		textEncarCompra.setBounds(278, 67, 119, 17);
+		paneCompra.add(textEncarCompra);
+		textEncarCompra.setColumns(10);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
 		lblFecha.setBounds(436, 69, 36, 14);
-		panel.add(lblFecha);
+		paneCompra.add(lblFecha);
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(482, 66, 74, 17);
-		panel.add(textField_1);
+		textFechCompr = new JTextField();
+		textFechCompr.setEditable(false);
+		textFechCompr.setColumns(10);
+		textFechCompr.setBounds(482, 66, 74, 17);
+		paneCompra.add(textFechCompr);
 		
 		JLabel lblIdDeProveedor = new JLabel("Id de proveedor:");
 		lblIdDeProveedor.setBounds(181, 152, 90, 14);
-		panel.add(lblIdDeProveedor);
+		paneCompra.add(lblIdDeProveedor);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(278, 149, 74, 17);
-		panel.add(textField_2);
+		textIdProvCompra = new JTextField();
+		textIdProvCompra.setColumns(10);
+		textIdProvCompra.setBounds(278, 149, 74, 17);
+		paneCompra.add(textIdProvCompra);
 		
 		JLabel lblDatosDelProveedor = new JLabel("DATOS DEL PROVEEDOR");
 		lblDatosDelProveedor.setFont(new Font("Vijaya", Font.PLAIN, 18));
 		lblDatosDelProveedor.setBounds(301, 114, 175, 14);
-		panel.add(lblDatosDelProveedor);
+		paneCompra.add(lblDatosDelProveedor);
 		
 		JLabel lblNombreYApellido = new JLabel("Nombre y Apellido:");
 		lblNombreYApellido.setBounds(380, 152, 90, 14);
-		panel.add(lblNombreYApellido);
+		paneCompra.add(lblNombreYApellido);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setColumns(10);
-		textField_3.setBounds(488, 149, 119, 17);
-		panel.add(textField_3);
+		textNomCompra = new JTextField();
+		textNomCompra.setEditable(false);
+		textNomCompra.setColumns(10);
+		textNomCompra.setBounds(488, 149, 119, 17);
+		paneCompra.add(textNomCompra);
 		
 		JLabel lblRift = new JLabel("Rif:");
 		lblRift.setBounds(245, 192, 46, 14);
-		panel.add(lblRift);
+		paneCompra.add(lblRift);
 		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		textField_4.setColumns(10);
-		textField_4.setBounds(278, 189, 74, 17);
-		panel.add(textField_4);
+		textRifCompra = new JTextField();
+		textRifCompra.setEditable(false);
+		textRifCompra.setColumns(10);
+		textRifCompra.setBounds(278, 189, 74, 17);
+		paneCompra.add(textRifCompra);
 		
 		JLabel lblEmpresa = new JLabel("Empresa:");
 		lblEmpresa.setBounds(380, 192, 46, 14);
-		panel.add(lblEmpresa);
+		paneCompra.add(lblEmpresa);
 		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		textField_5.setColumns(10);
-		textField_5.setBounds(436, 189, 90, 17);
-		panel.add(textField_5);
+		textEmpreCompra = new JTextField();
+		textEmpreCompra.setEditable(false);
+		textEmpreCompra.setColumns(10);
+		textEmpreCompra.setBounds(436, 189, 90, 17);
+		paneCompra.add(textEmpreCompra);
 		
 		JLabel lblDatosDelProducto = new JLabel("DATOS DEL PRODUCTO");
 		lblDatosDelProducto.setFont(new Font("Vijaya", Font.PLAIN, 18));
 		lblDatosDelProducto.setBounds(310, 230, 162, 14);
-		panel.add(lblDatosDelProducto);
+		paneCompra.add(lblDatosDelProducto);
 		
 		JLabel lblIdDeProducto = new JLabel("Id de producto:");
 		lblIdDeProducto.setBounds(195, 258, 90, 14);
-		panel.add(lblIdDeProducto);
+		paneCompra.add(lblIdDeProducto);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(281, 255, 59, 17);
-		panel.add(textField_6);
+		textIdProduCompra = new JTextField();
+		textIdProduCompra.setColumns(10);
+		textIdProduCompra.setBounds(281, 255, 59, 17);
+		paneCompra.add(textIdProduCompra);
 		
 		JLabel lblDescriccion = new JLabel("Descriccion:");
 		lblDescriccion.setBounds(350, 258, 76, 14);
-		panel.add(lblDescriccion);
+		paneCompra.add(lblDescriccion);
 		
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		textField_7.setColumns(10);
-		textField_7.setBounds(416, 255, 59, 17);
-		panel.add(textField_7);
+		textDescriCompra = new JTextField();
+		textDescriCompra.setEditable(false);
+		textDescriCompra.setColumns(10);
+		textDescriCompra.setBounds(416, 255, 59, 17);
+		paneCompra.add(textDescriCompra);
 		
 		JLabel lblPrecio = new JLabel("Precio:");
 		lblPrecio.setBounds(485, 258, 46, 14);
-		panel.add(lblPrecio);
+		paneCompra.add(lblPrecio);
 		
-		textField_8 = new JTextField();
-		textField_8.setEditable(false);
-		textField_8.setColumns(10);
-		textField_8.setBounds(527, 255, 59, 17);
-		panel.add(textField_8);
+		textPresioCompra = new JTextField();
+		textPresioCompra.setEditable(false);
+		textPresioCompra.setColumns(10);
+		textPresioCompra.setBounds(527, 255, 59, 17);
+		paneCompra.add(textPresioCompra);
 		
 		JLabel lblCantidad = new JLabel("Cantidad:");
 		lblCantidad.setBounds(245, 297, 65, 14);
-		panel.add(lblCantidad);
+		paneCompra.add(lblCantidad);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(308, 295, 59, 17);
-		panel.add(textField_9);
+		textCantiCompra = new JTextField();
+		textCantiCompra.setColumns(10);
+		textCantiCompra.setBounds(308, 295, 59, 17);
+		paneCompra.add(textCantiCompra);
 		
 		table = new JTable();
 		table.setSurrendersFocusOnKeystroke(true);
@@ -217,28 +228,172 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		table.getColumnModel().getColumn(0).setMinWidth(17);
 		table.getColumnModel().getColumn(1).setResizable(false);
 		table.setBounds(181, 353, 426, 123);
-		panel.add(table);
+		paneCompra.add(table);
 		
-		JButton btnNewButton = new JButton("Facturar");
-		btnNewButton.setBounds(482, 487, 89, 23);
-		panel.add(btnNewButton);
+		JButton btnFacturarCompra = new JButton("Facturar");
+		btnFacturarCompra.setBounds(482, 487, 89, 23);
+		paneCompra.add(btnFacturarCompra);
 		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setBounds(220, 487, 89, 23);
-		panel.add(btnNewButton_1);
+		JButton btnCancelarCompra = new JButton("Cancelar");
+		btnCancelarCompra.setBounds(220, 487, 89, 23);
+		paneCompra.add(btnCancelarCompra);
 		
-		JButton btnNewButton_2 = new JButton("Cargar Compra");
-		btnNewButton_2.setBounds(411, 293, 130, 23);
-		panel.add(btnNewButton_2);
+		JButton btnCargarCompra = new JButton("Cargar Compra");
+		btnCargarCompra.setBounds(411, 293, 130, 23);
+		paneCompra.add(btnCargarCompra);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setBounds(226, 0, 300, 60);
+		paneCompra.add(label_1);
+		label_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/compra0.png")));
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondd.png")));
 		label.setBounds(0, 0, 794, 535);
-		panel.add(label);
+		paneCompra.add(label);
+		
+		JPanel paneVenta = new JPanel();
+		paneVenta.setBounds(0, 0, 794, 545);
+		PanePrincipal.add(paneVenta);
+		paneVenta.setLayout(null);
+		
+		JLabel label_2 = new JLabel("Encargado:");
+		label_2.setBounds(229, 64, 68, 14);
+		paneVenta.add(label_2);
+		
+		textEncarVenta = new JTextField();
+		textEncarVenta.setEditable(false);
+		textEncarVenta.setColumns(10);
+		textEncarVenta.setBounds(297, 62, 119, 17);
+		paneVenta.add(textEncarVenta);
+		
+		JLabel label_3 = new JLabel("Fecha:");
+		label_3.setBounds(455, 64, 36, 14);
+		paneVenta.add(label_3);
+		
+		textFechVenta = new JTextField();
+		textFechVenta.setEditable(false);
+		textFechVenta.setColumns(10);
+		textFechVenta.setBounds(501, 61, 74, 17);
+		paneVenta.add(textFechVenta);
+		
+		JLabel lblCedula = new JLabel("Cedula:");
+		lblCedula.setBounds(200, 147, 90, 14);
+		paneVenta.add(lblCedula);
+		
+		textCeduVenta = new JTextField();
+		textCeduVenta.setColumns(10);
+		textCeduVenta.setBounds(252, 144, 99, 17);
+		paneVenta.add(textCeduVenta);
+		
+		JLabel lblDatosDelCliente = new JLabel("DATOS DEL CLIENTE");
+		lblDatosDelCliente.setFont(new Font("Vijaya", Font.PLAIN, 18));
+		lblDatosDelCliente.setBounds(355, 106, 152, 14);
+		paneVenta.add(lblDatosDelCliente);
+		
+		JLabel label_6 = new JLabel("Nombre y Apellido:");
+		label_6.setBounds(399, 147, 90, 14);
+		paneVenta.add(label_6);
+		
+		textNombVenta = new JTextField();
+		textNombVenta.setEditable(false);
+		textNombVenta.setColumns(10);
+		textNombVenta.setBounds(507, 144, 119, 17);
+		paneVenta.add(textNombVenta);
+		
+		JLabel lblTlf = new JLabel("Tlf:");
+		lblTlf.setBounds(200, 188, 46, 14);
+		paneVenta.add(lblTlf);
+		
+		textTlfVenta = new JTextField();
+		textTlfVenta.setEditable(false);
+		textTlfVenta.setColumns(10);
+		textTlfVenta.setBounds(233, 185, 74, 17);
+		paneVenta.add(textTlfVenta);
+		
+		JLabel lblDireccion = new JLabel("Direccion:");
+		lblDireccion.setBounds(336, 188, 59, 14);
+		paneVenta.add(lblDireccion);
+		
+		textDireccVenta = new JTextField();
+		textDireccVenta.setEditable(false);
+		textDireccVenta.setColumns(10);
+		textDireccVenta.setBounds(394, 186, 232, 17);
+		paneVenta.add(textDireccVenta);
+		
+		JLabel label_9 = new JLabel("DATOS DEL PRODUCTO");
+		label_9.setFont(new Font("Vijaya", Font.PLAIN, 18));
+		label_9.setBounds(345, 225, 162, 14);
+		paneVenta.add(label_9);
+		
+		JLabel label_10 = new JLabel("Id de producto:");
+		label_10.setBounds(214, 253, 90, 14);
+		paneVenta.add(label_10);
+		
+		textIdProVenta = new JTextField();
+		textIdProVenta.setColumns(10);
+		textIdProVenta.setBounds(300, 250, 59, 17);
+		paneVenta.add(textIdProVenta);
+		
+		JLabel label_11 = new JLabel("Descriccion:");
+		label_11.setBounds(369, 253, 76, 14);
+		paneVenta.add(label_11);
+		
+		textDirecVenta = new JTextField();
+		textDirecVenta.setEditable(false);
+		textDirecVenta.setColumns(10);
+		textDirecVenta.setBounds(435, 250, 59, 17);
+		paneVenta.add(textDirecVenta);
+		
+		JLabel label_12 = new JLabel("Precio:");
+		label_12.setBounds(504, 253, 46, 14);
+		paneVenta.add(label_12);
+		
+		textPrecVenta = new JTextField();
+		textPrecVenta.setEditable(false);
+		textPrecVenta.setColumns(10);
+		textPrecVenta.setBounds(546, 250, 59, 17);
+		paneVenta.add(textPrecVenta);
+		
+		JLabel label_13 = new JLabel("Cantidad:");
+		label_13.setBounds(264, 292, 65, 14);
+		paneVenta.add(label_13);
+		
+		textCantVenta = new JTextField();
+		textCantVenta.setColumns(10);
+		textCantVenta.setBounds(327, 290, 59, 17);
+		paneVenta.add(textCantVenta);
+		
+		tableVenta = new JTable();
+		tableVenta.setSurrendersFocusOnKeystroke(true);
+		tableVenta.setBounds(200, 348, 426, 123);
+		paneVenta.add(tableVenta);
+		
+		JButton butFactVenta = new JButton("Facturar");
+		butFactVenta.setBounds(501, 482, 89, 23);
+		paneVenta.add(butFactVenta);
+		
+		JButton butCancVenta = new JButton("Cancelar");
+		butCancVenta.setBounds(239, 482, 89, 23);
+		paneVenta.add(butCancVenta);
+		
+		JButton butCargarVenta = new JButton("Cargar Venta");
+		butCargarVenta.setBounds(430, 288, 130, 23);
+		paneVenta.add(butCargarVenta);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/VENTA.png")));
+		lblNewLabel_1.setBounds(264, 0, 238, 62);
+		paneVenta.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondd.png")));
+		lblNewLabel.setBounds(0, 0, 794, 534);
+		paneVenta.add(lblNewLabel);
 		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo.png")));
 		lblFondo.setBounds(0, -115, 1018, 707);
-		contentPane.add(lblFondo);
+		PanePrincipal.add(lblFondo);
 	}
 }
