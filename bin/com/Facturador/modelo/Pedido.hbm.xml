@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-ene-2016 16:35:11 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.Facturador.modelo.Pedido" table="pedido" catalog="db_facturador">
+        <composite-id name="id" class="com.Facturador.modelo.PedidoId">
+            <key-property name="idPedido" type="int">
+                <column name="id_pedido" />
+            </key-property>
+            <key-property name="clienteIdCedula" type="int">
+                <column name="cliente_id_cedula" />
+            </key-property>
+            <key-property name="jefeIdjefe" type="int">
+                <column name="jefe_idjefe" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="encargado" class="com.Facturador.modelo.Encargado" update="false" insert="false" fetch="select">
+            <column name="jefe_idjefe" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cliente" class="com.Facturador.modelo.Cliente" update="false" insert="false" fetch="select">
+            <column name="cliente_id_cedula" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

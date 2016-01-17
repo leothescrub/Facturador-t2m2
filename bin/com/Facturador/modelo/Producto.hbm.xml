@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-ene-2016 16:35:11 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.Facturador.modelo.Producto" table="producto" catalog="db_facturador">
+        <composite-id name="id" class="com.Facturador.modelo.ProductoId">
+            <key-property name="idproducto" type="int">
+                <column name="idproducto" />
+            </key-property>
+            <key-property name="proveedorIdproveedor" type="int">
+                <column name="proveedor_idproveedor" />
+            </key-property>
+            <key-property name="encargadoId" type="int">
+                <column name="encargado_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="encargado" class="com.Facturador.modelo.Encargado" update="false" insert="false" fetch="select">
+            <column name="encargado_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="com.Facturador.modelo.Proveedor" update="false" insert="false" fetch="select">
+            <column name="proveedor_idproveedor" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="10" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="stock" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

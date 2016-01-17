@@ -24,6 +24,7 @@ import java.awt.Toolkit;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JSeparator;
+import javax.swing.JScrollPane;
 
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
@@ -37,7 +38,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	private JTextField textIdProduCompra;
 	private JTextField textDescriCompra;
 	private JTextField textCantiCompra;
-	private JTable table;
+	private JTable tableCompra;
 	private JTextField textEncarVenta;
 	private JTextField textFechVenta;
 	private JTextField textCeduVenta;
@@ -118,6 +119,24 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneCompra.setBounds(0, 0, 794, 535);
 		PanePrincipal.add(paneCompra);
 		paneCompra.setLayout(null);
+		
+		JScrollPane scrollPaneCompra = new JScrollPane(); //Primero se hace un scrollpane, y luego se mete el Jtable en el
+		scrollPaneCompra.setBounds(101, 353, 615, 115);
+		paneCompra.add(scrollPaneCompra);
+		
+		tableCompra = new JTable();
+		scrollPaneCompra.setViewportView(tableCompra);
+		tableCompra.setSurrendersFocusOnKeystroke(true);
+		tableCompra.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Id", "Descripción", "Cantidad", "Precio", "Total" //MALDITO SE ESCRIBE DESCRIPCIÓN, CON P Y ACENTO EN LA Ó
+			}
+		));
+		tableCompra.getColumnModel().getColumn(0).setResizable(false);
+		tableCompra.getColumnModel().getColumn(0).setMinWidth(17);
+		tableCompra.getColumnModel().getColumn(1).setResizable(false);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(-10, 252, 794, 2);
@@ -240,21 +259,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		textCantiCompra.setColumns(10);
 		textCantiCompra.setBounds(152, 297, 59, 17);
 		paneCompra.add(textCantiCompra);
-		
-		table = new JTable();
-		table.setSurrendersFocusOnKeystroke(true);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Id", "Descriccion", "Cantidad", "Precio", "Total"
-			}
-		));
-		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(0).setMinWidth(17);
-		table.getColumnModel().getColumn(1).setResizable(false);
-		table.setBounds(181, 353, 426, 123);
-		paneCompra.add(table);
 		
 		JButton btnFacturarCompra = new JButton("Facturar");
 		btnFacturarCompra.setBounds(482, 487, 89, 23);
