@@ -1,7 +1,6 @@
 # Facturador en Java
 Aplicación realizada en Eclipse Mars con la ayuda de GitHub para el trabajo en equipo, así como la creación y estructuración de una documentación *medianamente* decente.
 
-Nota de prueba
 
 ----------
 # Requisitos

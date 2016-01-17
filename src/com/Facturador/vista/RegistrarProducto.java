@@ -48,15 +48,15 @@ public class RegistrarProducto extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblDescriccion = new JLabel("DESCRICCION:");
-		lblDescriccion.setForeground(new Color(0, 0, 128));
-		lblDescriccion.setFont(new Font("Leelawadee", Font.PLAIN, 16));
-		lblDescriccion.setBounds(43, 84, 109, 14);
-		contentPane.add(lblDescriccion);
+		JLabel lblDescripción = new JLabel("DESCRIPCI\u00D3N:");
+		lblDescripción.setForeground(new Color(0, 0, 128));
+		lblDescripción.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblDescripción.setBounds(43, 84, 109, 14);
+		contentPane.add(lblDescripción);
 		
 		JLabel lblPrecio = new JLabel("PRECIO:");
 		lblPrecio.setForeground(new Color(0, 0, 128));
-		lblPrecio.setFont(new Font("Leelawadee", Font.PLAIN, 16));
+		lblPrecio.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		lblPrecio.setBounds(43, 119, 90, 14);
 		contentPane.add(lblPrecio);
 		
@@ -67,7 +67,7 @@ public class RegistrarProducto extends JFrame {
 		
 		JLabel lblCodigoDeProducto = new JLabel("ID PRODUCTO:");
 		lblCodigoDeProducto.setForeground(new Color(0, 0, 128));
-		lblCodigoDeProducto.setFont(new Font("Leelawadee", Font.PLAIN, 16));
+		lblCodigoDeProducto.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		lblCodigoDeProducto.setBounds(43, 158, 198, 14);
 		contentPane.add(lblCodigoDeProducto);
 		

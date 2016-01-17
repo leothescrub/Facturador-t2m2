@@ -21,6 +21,9 @@ import javax.swing.table.DefaultTableModel;
 
 import com.Facturador.controlador.ControlVentanaPrincipal;
 import java.awt.Toolkit;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JSeparator;
 
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
@@ -33,7 +36,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	private JTextField textEmpreCompra;
 	private JTextField textIdProduCompra;
 	private JTextField textDescriCompra;
-	private JTextField textPresioCompra;
 	private JTextField textCantiCompra;
 	private JTable table;
 	private JTextField textEncarVenta;
@@ -117,111 +119,126 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		PanePrincipal.add(paneCompra);
 		paneCompra.setLayout(null);
 		
-		JLabel lblEncargado = new JLabel("Encargado:");
-		lblEncargado.setBounds(210, 69, 68, 14);
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(-10, 252, 794, 2);
+		paneCompra.add(separator_1);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 225, 794, 2);
+		paneCompra.add(separator);
+		
+		JSeparator sep_2 = new JSeparator();
+		sep_2.setBounds(0, 93, 794, 2);
+		paneCompra.add(sep_2);
+		
+		JSeparator sep_1 = new JSeparator();
+		sep_1.setBounds(0, 119, 794, 2);
+		paneCompra.add(sep_1);
+		
+		JLabel lblEncargado = new JLabel("Id de Encargado:");
+		lblEncargado.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblEncargado.setBounds(31, 57, 119, 32);
 		paneCompra.add(lblEncargado);
 		
 		textEncarCompra = new JTextField();
 		textEncarCompra.setEditable(false);
-		textEncarCompra.setBounds(278, 67, 119, 17);
+		textEncarCompra.setBounds(152, 67, 139, 17);
 		paneCompra.add(textEncarCompra);
 		textEncarCompra.setColumns(10);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(436, 69, 36, 14);
+		lblFecha.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblFecha.setBounds(619, 65, 51, 17);
 		paneCompra.add(lblFecha);
 		
 		textFechCompr = new JTextField();
 		textFechCompr.setEditable(false);
 		textFechCompr.setColumns(10);
-		textFechCompr.setBounds(482, 66, 74, 17);
+		textFechCompr.setBounds(680, 67, 74, 17);
 		paneCompra.add(textFechCompr);
 		
 		JLabel lblIdDeProveedor = new JLabel("Id de proveedor:");
-		lblIdDeProveedor.setBounds(181, 152, 90, 14);
+		lblIdDeProveedor.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblIdDeProveedor.setBounds(31, 141, 119, 29);
 		paneCompra.add(lblIdDeProveedor);
 		
 		textIdProvCompra = new JTextField();
 		textIdProvCompra.setColumns(10);
-		textIdProvCompra.setBounds(278, 149, 74, 17);
+		textIdProvCompra.setBounds(152, 149, 139, 17);
 		paneCompra.add(textIdProvCompra);
 		
 		JLabel lblDatosDelProveedor = new JLabel("DATOS DEL PROVEEDOR");
-		lblDatosDelProveedor.setFont(new Font("Vijaya", Font.PLAIN, 18));
-		lblDatosDelProveedor.setBounds(301, 114, 175, 14);
+		lblDatosDelProveedor.setFont(new Font("Urdu Typesetting", Font.PLAIN, 18));
+		lblDatosDelProveedor.setBounds(278, 89, 248, 32);
 		paneCompra.add(lblDatosDelProveedor);
 		
 		JLabel lblNombreYApellido = new JLabel("Nombre y Apellido:");
-		lblNombreYApellido.setBounds(380, 152, 90, 14);
+		lblNombreYApellido.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblNombreYApellido.setBounds(301, 144, 149, 23);
 		paneCompra.add(lblNombreYApellido);
 		
 		textNomCompra = new JTextField();
 		textNomCompra.setEditable(false);
 		textNomCompra.setColumns(10);
-		textNomCompra.setBounds(488, 149, 119, 17);
+		textNomCompra.setBounds(446, 149, 308, 17);
 		paneCompra.add(textNomCompra);
 		
 		JLabel lblRift = new JLabel("Rif:");
-		lblRift.setBounds(245, 192, 46, 14);
+		lblRift.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblRift.setBounds(31, 181, 46, 14);
 		paneCompra.add(lblRift);
 		
 		textRifCompra = new JTextField();
 		textRifCompra.setEditable(false);
 		textRifCompra.setColumns(10);
-		textRifCompra.setBounds(278, 189, 74, 17);
+		textRifCompra.setBounds(61, 181, 230, 17);
 		paneCompra.add(textRifCompra);
 		
 		JLabel lblEmpresa = new JLabel("Empresa:");
-		lblEmpresa.setBounds(380, 192, 46, 14);
+		lblEmpresa.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblEmpresa.setBounds(301, 178, 74, 17);
 		paneCompra.add(lblEmpresa);
 		
 		textEmpreCompra = new JTextField();
 		textEmpreCompra.setEditable(false);
 		textEmpreCompra.setColumns(10);
-		textEmpreCompra.setBounds(436, 189, 90, 17);
+		textEmpreCompra.setBounds(446, 178, 308, 17);
 		paneCompra.add(textEmpreCompra);
 		
 		JLabel lblDatosDelProducto = new JLabel("DATOS DEL PRODUCTO");
-		lblDatosDelProducto.setFont(new Font("Vijaya", Font.PLAIN, 18));
-		lblDatosDelProducto.setBounds(310, 230, 162, 14);
+		lblDatosDelProducto.setFont(new Font("Urdu Typesetting", Font.PLAIN, 18));
+		lblDatosDelProducto.setBounds(278, 225, 203, 23);
 		paneCompra.add(lblDatosDelProducto);
 		
 		JLabel lblIdDeProducto = new JLabel("Id de producto:");
-		lblIdDeProducto.setBounds(195, 258, 90, 14);
+		lblIdDeProducto.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblIdDeProducto.setBounds(31, 264, 119, 18);
 		paneCompra.add(lblIdDeProducto);
 		
 		textIdProduCompra = new JTextField();
 		textIdProduCompra.setColumns(10);
-		textIdProduCompra.setBounds(281, 255, 59, 17);
+		textIdProduCompra.setBounds(152, 267, 139, 17);
 		paneCompra.add(textIdProduCompra);
 		
-		JLabel lblDescriccion = new JLabel("Descriccion:");
-		lblDescriccion.setBounds(350, 258, 76, 14);
+		JLabel lblDescriccion = new JLabel("Descripci\u00F3n:");
+		lblDescriccion.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblDescriccion.setBounds(301, 259, 130, 28);
 		paneCompra.add(lblDescriccion);
 		
 		textDescriCompra = new JTextField();
 		textDescriCompra.setEditable(false);
 		textDescriCompra.setColumns(10);
-		textDescriCompra.setBounds(416, 255, 59, 17);
+		textDescriCompra.setBounds(397, 267, 357, 17);
 		paneCompra.add(textDescriCompra);
 		
-		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(485, 258, 46, 14);
-		paneCompra.add(lblPrecio);
-		
-		textPresioCompra = new JTextField();
-		textPresioCompra.setEditable(false);
-		textPresioCompra.setColumns(10);
-		textPresioCompra.setBounds(527, 255, 59, 17);
-		paneCompra.add(textPresioCompra);
-		
 		JLabel lblCantidad = new JLabel("Cantidad:");
-		lblCantidad.setBounds(245, 297, 65, 14);
+		lblCantidad.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblCantidad.setBounds(31, 296, 65, 14);
 		paneCompra.add(lblCantidad);
 		
 		textCantiCompra = new JTextField();
 		textCantiCompra.setColumns(10);
-		textCantiCompra.setBounds(308, 295, 59, 17);
+		textCantiCompra.setBounds(152, 297, 59, 17);
 		paneCompra.add(textCantiCompra);
 		
 		table = new JTable();
@@ -249,7 +266,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneCompra.add(btnCancelarCompra);
 		
 		JButton btnCargarCompra = new JButton("Cargar Compra");
-		btnCargarCompra.setBounds(411, 293, 130, 23);
+		btnCargarCompra.setBounds(285, 319, 130, 23);
 		paneCompra.add(btnCargarCompra);
 		
 		JLabel label_1 = new JLabel("");
@@ -258,7 +275,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		label_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/compra0.png")));
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondd.png")));
+		label.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
 		label.setBounds(0, 0, 794, 535);
 		paneCompra.add(label);
 		
@@ -399,7 +416,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondd.png")));
+		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
 		lblNewLabel.setBounds(0, 0, 794, 534);
 		paneVenta.add(lblNewLabel);
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
