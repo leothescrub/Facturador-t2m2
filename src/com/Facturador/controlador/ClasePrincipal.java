@@ -15,7 +15,7 @@ public class ClasePrincipal  {
 	public static VentanaPrincipal VentPrin = new VentanaPrincipal();    // desde cualquier parte de este paquete
 	
 	public static void main(String[] args) {
-		System.out.println("Hola mundo");
+		System.out.println("Si no hay excepciones en esta consola significa que todo va bien :)");
 		
 		VentPrin.setVisible(true); // se inicia la ventana principal
 	}

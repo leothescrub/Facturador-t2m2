@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 
 public class RegistroDeEncargado extends JFrame {
 

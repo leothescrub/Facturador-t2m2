@@ -18,25 +18,26 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			ClasePrincipal q = new ClasePrincipal();//se instancia la claseprincipal
+			ClasePrincipal q = new ClasePrincipal(); //se instancia la claseprincipal
 			
 			
 			
-			if(this.cha.equals("ItenCompra"))//se compara el texto que entro por el constructor esto da la ubicacion del evento
-			{
+			if(this.cha.equals("ItenCompra")){//se compara el texto que entro por el constructor esto da la ubicacion del evento
 				q.VentPrin.paneVenta.setVisible(false);
-			q.VentPrin.paneCompra.setVisible(true); // atraves del objeto "q" se llama el objeto "VentPrin" para poder acceder a paneCompra
+				q.VentPrin.paneCompra.setVisible(true); // atraves del objeto "q" se llama el objeto "VentPrin" para poder acceder a paneCompra
 			}										//por que hacerlo asi por que es mejor modificar una vista desde el mismo objeto de lo contrario arroja problemas 
 			
-			if(this.cha.equals("BotCancCompra"))
-			{
-			q.VentPrin.paneCompra.setVisible(false);
+			if(this.cha.equals("btnCancelarCompra")){ //Haz que los botones se llamen igual a los listeners
+				q.VentPrin.paneCompra.setVisible(false);
 			}
 			
-			if(this.cha.equals("ItenVenta"))
-			{
-			q.VentPrin.paneVenta.setVisible(true);
-			q.VentPrin.paneCompra.setVisible(false);
+			if(this.cha.equals("butCancVenta")){ //Agregado listener para cancelar venta
+				q.VentPrin.paneVenta.setVisible(false);
+			}
+			
+			if(this.cha.equals("ItemVenta")){
+				q.VentPrin.paneVenta.setVisible(true);
+				q.VentPrin.paneCompra.setVisible(false);
 			}
 			
 		}

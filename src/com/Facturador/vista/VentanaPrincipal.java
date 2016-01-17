@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 import com.Facturador.controlador.ControlVentanaPrincipal;
+import java.awt.Toolkit;
 
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
@@ -49,6 +50,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	public static  JPanel paneVenta;
 	public static JPanel paneCompra; // se coloca como public static para poder ser modificado desde cualquier clase
 	public VentanaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/com/Facturador/images/cash4.png")));
 		setResizable(false);
 		setTitle("Facturador A.R.R.E.C.H.O"); //Se crea el objeto
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +86,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnNewMenu_1.add(itenCompra);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Venta");
-		mntmNewMenuItem_4.addActionListener(new ControlVentanaPrincipal(this, "ItenVenta"));
+		mntmNewMenuItem_4.addActionListener(new ControlVentanaPrincipal(this, "ItemVenta"));
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmInventario = new JMenuItem("Inventario");
@@ -242,7 +244,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneCompra.add(btnFacturarCompra);
 		
 		JButton btnCancelarCompra = new JButton("Cancelar");
-		btnCancelarCompra.addActionListener(new ControlVentanaPrincipal(this, "BotCancCompra"));
+		btnCancelarCompra.addActionListener(new ControlVentanaPrincipal(this, "btnCancelarCompra"));
 		btnCancelarCompra.setBounds(220, 487, 89, 23);
 		paneCompra.add(btnCancelarCompra);
 		
@@ -383,6 +385,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(butFactVenta);
 		
 		JButton butCancVenta = new JButton("Cancelar");
+		butCancVenta.addActionListener(new ControlVentanaPrincipal(this, "butCancVenta"));
 		butCancVenta.setBounds(239, 482, 89, 23);
 		paneVenta.add(butCancVenta);
 		
@@ -399,7 +402,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondd.png")));
 		lblNewLabel.setBounds(0, 0, 794, 534);
 		paneVenta.add(lblNewLabel);
-		//sapoooooooooooooooooooooo  jhj
 		JLabel lblFondo = new JLabel(""); //Fondo de Ventana principal
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo.png")));
 		lblFondo.setBounds(0, -115, 1018, 707);
