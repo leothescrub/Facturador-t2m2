@@ -18,6 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
+import com.Facturador.controlador.ControlVentanaPrincipal;
+
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
 	private JMenuItem mntmNewMenuItem;
@@ -42,7 +45,9 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	private JTextField textDirecVenta;
 	private JTextField textPrecVenta;
 	private JTextField textCantVenta;
-	private JTable tableVenta;
+    private JTable tableVenta;
+	public static  JPanel paneVenta;
+	public static JPanel paneCompra; // se coloca como public static para poder ser modificado desde cualquier clase
 	public VentanaPrincipal() {
 		setResizable(false);
 		setTitle("Facturador A.R.R.E.C.H.O"); //Se crea el objeto
@@ -74,10 +79,12 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnNewMenu_1.setFont(new Font("Goudy Old Style", Font.PLAIN, 14));
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Compra");
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		JMenuItem itenCompra = new JMenuItem("Compra");
+		itenCompra.addActionListener(new ControlVentanaPrincipal(this, "ItenCompra"));
+		mnNewMenu_1.add(itenCompra);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Venta");
+		mntmNewMenuItem_4.addActionListener(new ControlVentanaPrincipal(this, "ItenVenta"));
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmInventario = new JMenuItem("Inventario");
@@ -102,7 +109,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		setContentPane(PanePrincipal);
 		PanePrincipal.setLayout(null);
 		
-		JPanel paneCompra = new JPanel();
+		paneCompra = new JPanel();
 		paneCompra.setVisible(false);
 		paneCompra.setBounds(0, 0, 794, 535);
 		PanePrincipal.add(paneCompra);
@@ -235,6 +242,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneCompra.add(btnFacturarCompra);
 		
 		JButton btnCancelarCompra = new JButton("Cancelar");
+		btnCancelarCompra.addActionListener(new ControlVentanaPrincipal(this, "BotCancCompra"));
 		btnCancelarCompra.setBounds(220, 487, 89, 23);
 		paneCompra.add(btnCancelarCompra);
 		
@@ -252,7 +260,8 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		label.setBounds(0, 0, 794, 535);
 		paneCompra.add(label);
 		
-		JPanel paneVenta = new JPanel();
+		paneVenta = new JPanel();
+		paneVenta.setVisible(false);
 		paneVenta.setBounds(0, 0, 794, 545);
 		PanePrincipal.add(paneVenta);
 		paneVenta.setLayout(null);
