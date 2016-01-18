@@ -83,7 +83,6 @@ public class RegistroDeEncargado extends JFrame {
 		
 		textPass = new JTextField();
 		RestrictedTextField restriPass = new RestrictedTextField(textPass);
-		restriPass.setOnlyNums(true);
 		restriPass.setLimit(18);
 		textPass.setColumns(10);
 		textPass.setBounds(142, 210, 124, 20);
