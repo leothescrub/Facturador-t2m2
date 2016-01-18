@@ -13,7 +13,7 @@ public class Cliente implements java.io.Serializable {
 	private String nombre;
 	private Integer telf;
 	private String dir;
-	private Set<Pedido> pedidos = new HashSet<Pedido>(0);
+	
 
 	public Cliente() {
 	}
@@ -22,12 +22,11 @@ public class Cliente implements java.io.Serializable {
 		this.idCedula = idCedula;
 	}
 
-	public Cliente(int idCedula, String nombre, Integer telf, String dir, Set<Pedido> pedidos) {
+	public Cliente(int idCedula, String nombre, Integer telf, String dir) {
 		this.idCedula = idCedula;
 		this.nombre = nombre;
 		this.telf = telf;
 		this.dir = dir;
-		this.pedidos = pedidos;
 	}
 
 	public int getIdCedula() {
@@ -62,12 +61,13 @@ public class Cliente implements java.io.Serializable {
 		this.dir = dir;
 	}
 
-	public Set<Pedido> getPedidos() {
+	/**public Set<Pedido> getPedidos() {
 		return this.pedidos;
 	}
 
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	**/
 
 }
