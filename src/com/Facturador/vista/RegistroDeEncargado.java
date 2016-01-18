@@ -28,6 +28,7 @@ public class RegistroDeEncargado extends JFrame {
 	public static JTextField textApeEncargado;
 	public static JTextField textUser;
 	public static JTextField textPass;
+	public static JTextField textCeduEncar;
 
 	/**
 	 * Launch the application.
@@ -52,7 +53,7 @@ public class RegistroDeEncargado extends JFrame {
 		setTitle("REGISTRO DE ENCARGADO");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 325, 350);
+		setBounds(100, 100, 325, 387);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,7 +62,7 @@ public class RegistroDeEncargado extends JFrame {
 		JLabel lblUsername = new JLabel("USERNAME:");
 		lblUsername.setForeground(new Color(0, 0, 128));
 		lblUsername.setFont(new Font("Leelawadee", Font.PLAIN, 16));
-		lblUsername.setBounds(47, 144, 101, 14);
+		lblUsername.setBounds(47, 178, 101, 14);
 		contentPane.add(lblUsername);
 		
 		textUser = new JTextField();
@@ -69,7 +70,7 @@ public class RegistroDeEncargado extends JFrame {
 		restriUser.setOnlyText(true);
 		restriUser.setLimit(15);
 		textUser.setColumns(10);
-		textUser.setBounds(142, 143, 124, 20);
+		textUser.setBounds(142, 177, 124, 20);
 		contentPane.add(textUser);
 		
 		textApeEncargado = new JTextField();
@@ -85,26 +86,26 @@ public class RegistroDeEncargado extends JFrame {
 		restriPass.setOnlyNums(true);
 		restriPass.setLimit(18);
 		textPass.setColumns(10);
-		textPass.setBounds(142, 176, 124, 20);
+		textPass.setBounds(142, 210, 124, 20);
 		contentPane.add(textPass);
 		
 		JButton btnEncarCancel = new JButton("CANCELAR");
 		btnEncarCancel.addActionListener(new ControRegistroEncargado(this,"CanceEncar"));
 		btnEncarCancel.setForeground(new Color(255, 0, 0));
 		btnEncarCancel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
-		btnEncarCancel.setBounds(10, 231, 101, 36);
+		btnEncarCancel.setBounds(10, 273, 101, 36);
 		contentPane.add(btnEncarCancel);
 		
 		JButton btnEncarGuardar = new JButton("GUARDAR");
 		btnEncarGuardar.addActionListener(new ControRegistroEncargado(this,"GuardRegis"));
 		btnEncarGuardar.setForeground(new Color(255, 0, 0));
 		btnEncarGuardar.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
-		btnEncarGuardar.setBounds(208, 231, 101, 36);
+		btnEncarGuardar.setBounds(208, 273, 101, 36);
 		contentPane.add(btnEncarGuardar);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(RegistroDeEncargado.class.getResource("/com/Facturador/images/encarga111.png")));
-		label_1.setBounds(98, 190, 156, 177);
+		label_1.setBounds(97, 229, 156, 177);
 		contentPane.add(label_1);
 		
 		JLabel lblNombre = new JLabel("NOMBRE:");
@@ -121,13 +122,27 @@ public class RegistroDeEncargado extends JFrame {
 		JLabel lblPasswer = new JLabel("PASSWORD:");
 		lblPasswer.setForeground(new Color(0, 0, 128));
 		lblPasswer.setFont(new Font("Leelawadee", Font.PLAIN, 16));
-		lblPasswer.setBounds(47, 177, 101, 14);
+		lblPasswer.setBounds(47, 211, 101, 14);
 		contentPane.add(lblPasswer);
 		
 		textNomEncargado = new JTextField();
 		RestrictedTextField restriNom = new RestrictedTextField(textNomEncargado);
 		restriNom.setOnlyText(true);
 		restriNom.setLimit(20);
+		
+		JLabel lblCedula = new JLabel("CEDULA:");
+		lblCedula.setForeground(new Color(0, 0, 128));
+		lblCedula.setFont(new Font("Leelawadee", Font.PLAIN, 16));
+		lblCedula.setBounds(47, 144, 90, 14);
+		contentPane.add(lblCedula);
+		
+		textCeduEncar = new JTextField();
+		RestrictedTextField restriCedu = new RestrictedTextField(textCeduEncar);
+		restriCedu.setOnlyNums(true);
+		restriCedu.setLimit(8);
+		textCeduEncar.setColumns(10);
+		textCeduEncar.setBounds(142, 143, 124, 20);
+		contentPane.add(textCeduEncar);
 		textNomEncargado.setBounds(142, 72, 124, 20);
 		contentPane.add(textNomEncargado);
 		textNomEncargado.setColumns(10);

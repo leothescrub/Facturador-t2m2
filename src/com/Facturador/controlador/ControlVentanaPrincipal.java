@@ -66,6 +66,16 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				q.provee.setVisible(true);
 			
 			}
+			//INVENTARIO
+			if(this.cha.equals("Inventario")){
+				q.Invet.setVisible(true);
+			/*
+			 * Aqui debe ir el seteo de datos a la tabla para 
+			 * cuando se abra el inventario ya esten hay
+			 *
+			 */
+			}
+			
 		}
 
 }

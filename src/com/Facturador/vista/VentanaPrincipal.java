@@ -99,9 +99,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mntmNewMenuItem_4.addActionListener(new ControlVentanaPrincipal(this, "ItemVenta"));
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
-		JMenuItem mntmInventario = new JMenuItem("Inventario");
-		mnNewMenu_1.add(mntmInventario);
-		
 		JMenu mnOpcionesDeAdministrador = new JMenu("Opciones de administrador");
 		mnOpcionesDeAdministrador.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/avatar2.png")));
 		mnOpcionesDeAdministrador.setForeground(Color.RED);
@@ -112,13 +109,9 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mntmNewMenuItem.addActionListener(new ControlVentanaPrincipal(this, "RegisEncar"));
 		mnOpcionesDeAdministrador.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("New menu item");
-		mnOpcionesDeAdministrador.add(mntmNewMenuItem_5);
-		
-		JMenuItem mntmNewMenuItem_6 = new JMenuItem("New menu item");
-		mnOpcionesDeAdministrador.add(mntmNewMenuItem_6);
-		
 		JMenuItem mntmInventario_1 = new JMenuItem("Inventario");
+		mntmInventario_1.addActionListener(new ControlVentanaPrincipal(this, "Inventario"));   // creoo que esto no lo havia documentado antes
+																							  //se instancia la clase y se le pasan la referencia a la clase y la uvicacion del evento
 		mntmInventario_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/work11.png")));
 		mntmInventario_1.setForeground(Color.RED);
 		mntmInventario_1.setFont(new Font("Goudy Old Style", Font.PLAIN, 14));

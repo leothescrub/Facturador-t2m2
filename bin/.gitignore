@@ -1,6 +1,2 @@
 /com/
-/Cliente.hbm.xml
-/Encargado.hbm.xml
-/Pedido.hbm.xml
-/Producto.hbm.xml
-/Proveedor.hbm.xml
+/hibernate.cfg.xml

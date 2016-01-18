@@ -26,6 +26,7 @@ public class ControRegistroEncargado implements ActionListener{
 				q.encar.textNomEncargado.setText("");
 				q.encar.textPass.setText("");
 				q.encar.textUser.setText("");
+				q.encar.textCeduEncar.setText("");
 				
 			}	
 			
