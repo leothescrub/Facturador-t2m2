@@ -93,7 +93,7 @@ public class RegistrarCliente extends JFrame {
 		lblDireccion.setBounds(42, 213, 90, 14);
 		contentPane.add(lblDireccion);
 		
-		JButton butCanClien = new JButton("CANCELAR");
+		JButton butCanClien = new JButton("SALIR");
 		butCanClien.addActionListener(new ControlRegistrarCliente (this,"CancelCliente"));
 		butCanClien.setForeground(Color.RED);
 		butCanClien.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
@@ -142,6 +142,7 @@ public class RegistrarCliente extends JFrame {
 		textClienDirec = new JTextField();
 		RestrictedTextField restriDirecc = new RestrictedTextField(textClienDirec);
 		restriDirecc.setOnlyText(true);
+		restriDirecc.setAcceptSpace(true);
 		restriDirecc.setLimit(40);
 		textClienDirec.setColumns(10);
 		textClienDirec.setBounds(137, 212, 172, 20);
