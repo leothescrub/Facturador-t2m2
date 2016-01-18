@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -202,7 +204,12 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		label_3.setBounds(613, 63, 46, 20);
 		paneVenta.add(label_3);
 		
+		Calendar calendario = new GregorianCalendar(); //Fecha agregada
+		int MES = calendario.get(Calendar.MONTH)+1;
+		String fecha = calendario.get(Calendar.DATE) + "/" + MES + "/" + calendario.get(Calendar.YEAR);
+		
 		textFechVenta = new JTextField();
+		textFechVenta.setText(fecha);
 		textFechVenta.setEditable(false);
 		textFechVenta.setColumns(10);
 		textFechVenta.setBounds(669, 67, 98, 17);
@@ -384,6 +391,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		
 		textFechCompr = new JTextField();
 		textFechCompr.setEditable(false);
+		textFechCompr.setText(fecha);
 		textFechCompr.setColumns(10);
 		textFechCompr.setBounds(680, 67, 74, 17);
 		paneCompra.add(textFechCompr);

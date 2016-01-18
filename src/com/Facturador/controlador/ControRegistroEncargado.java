@@ -30,11 +30,7 @@ public class ControRegistroEncargado implements ActionListener{
 			}	
 			
 			if(this.cha.equals("GuardRegis")){
-				/*
-				 * 
-				 * 
-				 * 
-				 */
+				
 			}	
 		
 			
