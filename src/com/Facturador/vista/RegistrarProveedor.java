@@ -28,25 +28,6 @@ public class RegistrarProveedor extends JFrame {
 	public static JTextField textRifPro;
 	public static JTextField textEmprPro;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegistrarProveedor frame = new RegistrarProveedor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	/**
-	 * Create the frame.
-	 */
 	public RegistrarProveedor() {
 		setTitle("REGISTRAR PROVEEDOR");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -92,7 +73,7 @@ public class RegistrarProveedor extends JFrame {
 		
 		textRifPro = new JTextField();
 		RestrictedTextField restriRif = new RestrictedTextField(textRifPro);
-		restriRif.setOnlyNums(true);
+		restriRif.setAcceptSpace(false);
 		restriRif.setLimit(15);
 		textRifPro.setColumns(10);
 		textRifPro.setBounds(142, 144, 124, 20);
@@ -106,19 +87,20 @@ public class RegistrarProveedor extends JFrame {
 		
 		textEmprPro = new JTextField();
 		RestrictedTextField restriEmpr = new RestrictedTextField(textEmprPro);
-		restriEmpr.setOnlyText(true);
 		restriEmpr.setLimit(20);
+		restriEmpr.setAcceptSpace(true);
 		textEmprPro.setColumns(10);
 		textEmprPro.setBounds(142, 180, 124, 20);
 		contentPane.add(textEmprPro);
 		
 		JButton butGuarPro = new JButton("GUARDAR");
 		butGuarPro.setForeground(Color.RED);
+		butGuarPro.addActionListener(new ControlRegistrarProveedor(this,"GuarProvee"));
 		butGuarPro.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
 		butGuarPro.setBounds(205, 223, 101, 36);
 		contentPane.add(butGuarPro);
 		
-		JButton butCancPro = new JButton("CANCELAR");
+		JButton butCancPro = new JButton("SALIR");
 		butCancPro.addActionListener(new ControlRegistrarProveedor(this,"CanceProvee"));
 		butCancPro.setForeground(Color.RED);
 		butCancPro.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));

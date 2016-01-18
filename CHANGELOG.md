@@ -5,6 +5,8 @@ LOS NUEVOS CAMBIOS SE ESCRIBEN POR ENCIMA DE LOS VIEJOS
 
 ----------
 
+> (To do, la entidad proveedor tiene id y rif, redundante, ya que el id y el rif son lo mismo, hay que rehacer la base de datos).
+
 > ##Commit 28##
 >- Creado JScrollBar, en el se guarda el JTable para su correcto funcionamiento
 >- Arreglados errores ortográficos (Es DESCRIPCIÓN, NO DESCRICCION)

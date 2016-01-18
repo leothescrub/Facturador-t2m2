@@ -39,10 +39,10 @@ public class ControlRegistrarCliente implements ActionListener  {
 				q.clien.textClienTelf.setText("");
 				
 			}	
-			if(this.cha.equals("GuardCliente")){ //No esta funcionando, revisar porque.
+			if(this.cha.equals("GuardCliente")){ 
 				
 				if (q.clien.textClienApellido.getText().equals("")||q.clien.textClienCedu.getText().equals("")||q.clien.textClienDirec.getText().equals("")||q.clien.textClienNombre.getText().equals("")||q.clien.textClienTelf.getText().equals("")){
-					JOptionPane.showMessageDialog(escu, "No puedes dejar espacios vacios", "Error", JOptionPane.ERROR_MESSAGE); //Agregada verificación
+					JOptionPane.showMessageDialog(escu, "No puedes dejar espacios vacios", "Error", JOptionPane.ERROR_MESSAGE); 
 				}
 				else{
 					System.out.println("Comenzó el parseo");
