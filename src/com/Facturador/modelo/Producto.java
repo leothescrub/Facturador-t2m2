@@ -8,17 +8,20 @@ import java.math.BigDecimal;
  */
 public class Producto implements java.io.Serializable {
 
-	private ProductoId id;
+	private int id;
 	private Encargado encargado;
 	private Proveedor proveedor;
 	private String nombre;
 	private BigDecimal precio;
 	private int stock;
 
-	public Producto() {
+	public Producto(int id, String nombre, BigDecimal precio) {
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
 	}
 
-	public Producto(ProductoId id, Encargado encargado, Proveedor proveedor, String nombre, BigDecimal precio,
+	public Producto(int id, Encargado encargado, Proveedor proveedor, String nombre, BigDecimal precio,
 			int stock) {
 		this.id = id;
 		this.encargado = encargado;
@@ -28,11 +31,11 @@ public class Producto implements java.io.Serializable {
 		this.stock = stock;
 	}
 
-	public ProductoId getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(ProductoId id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

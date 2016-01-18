@@ -48,7 +48,7 @@ public class ControlRegistrarCliente implements ActionListener  {
 					System.out.println("Comenzó el parseo");
 					String temp = q.clien.textClienCedu.getText();
 					int temp_cedu = Integer.parseInt(temp);
-					String temp_nombre = q.clien.textClienNombre.getText();
+					String temp_nombre = q.clien.textClienNombre.getText()+" "+q.clien.textClienApellido.getText();
 					String temp_telf = q.clien.textClienTelf.getText(); //////////////HEYYYYYYYYYY. Hay que pasar el telefono a String.
 					int temp_tel = Integer.parseInt(temp_telf);
 					String temp_dir = q.clien.textClienDirec.getText();//Parseo de todas las variables a objeto, si conoces una forma mas rapida de hacerla implementala

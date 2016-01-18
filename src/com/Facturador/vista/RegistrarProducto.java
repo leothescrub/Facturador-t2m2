@@ -82,14 +82,15 @@ public class RegistrarProducto extends JFrame {
 		textDescProd = new JTextField();
 		RestrictedTextField restridesc = new RestrictedTextField(textDescProd);
 		restridesc.setOnlyText(true);
+		restridesc.setAcceptSpace(true);
 		restridesc.setLimit(25);
 		textDescProd.setColumns(10);
 		textDescProd.setBounds(162, 83, 124, 20);
 		contentPane.add(textDescProd);
 		
 		textPreProd = new JTextField();
-		RestrictedTextField restriProd = new RestrictedTextField(textPreProd);
-		restriProd.setOnlyNums(true);
+		RestrictedTextField restriProd = new RestrictedTextField(textPreProd, "1234567890.,"); //El precio debe poder contener decimales
+		restriProd.setOnlyCustomCharacters(true);
 		restriProd.setLimit(8);
 		textPreProd.setColumns(10);
 		textPreProd.setBounds(162, 118, 124, 20);
@@ -103,7 +104,7 @@ public class RegistrarProducto extends JFrame {
 		textIdProd.setBounds(162, 157, 124, 20);
 		contentPane.add(textIdProd);
 		
-		JButton butCancProd = new JButton("CANCELAR");
+		JButton butCancProd = new JButton("SALIR");
 		butCancProd.addActionListener(new ControlRegistrarProducto(this, "CanceProduc"));
 		butCancProd.setForeground(Color.RED);
 		butCancProd.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
