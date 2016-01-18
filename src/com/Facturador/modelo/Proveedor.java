@@ -1,5 +1,5 @@
 package com.Facturador.modelo;
-// Generated 16-ene-2016 16:35:10 by Hibernate Tools 4.0.0
+// Generated 18-ene-2016 15:29:18 by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,36 +9,36 @@ import java.util.Set;
  */
 public class Proveedor implements java.io.Serializable {
 
-	private int idproveedor;
+	private String idrif;
 	private String nombre;
-	private String rif;
 	private String empresa;
+	private String tlf;
 	private Set<Producto> productos = new HashSet<Producto>(0);
 
 	public Proveedor() {
 	}
 
-	public Proveedor(int idproveedor, String nombre, String rif, String empresa) {
-		this.idproveedor = idproveedor;
+	public Proveedor(String idrif, String nombre, String empresa, String tlf) {
+		this.idrif = idrif;
 		this.nombre = nombre;
-		this.rif = rif;
 		this.empresa = empresa;
+		this.tlf = tlf;
 	}
 
-	public Proveedor(int idproveedor, String nombre, String rif, String empresa, Set<Producto> productos) {
-		this.idproveedor = idproveedor;
+	public Proveedor(String idrif, String nombre, String empresa, String tlf, Set<Producto> productos) {
+		this.idrif = idrif;
 		this.nombre = nombre;
-		this.rif = rif;
 		this.empresa = empresa;
+		this.tlf = tlf;
 		this.productos = productos;
 	}
 
-	public int getIdproveedor() {
-		return this.idproveedor;
+	public String getIdrif() {
+		return this.idrif;
 	}
 
-	public void setIdproveedor(int idproveedor) {
-		this.idproveedor = idproveedor;
+	public void setIdrif(String idrif) {
+		this.idrif = idrif;
 	}
 
 	public String getNombre() {
@@ -49,20 +49,20 @@ public class Proveedor implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getRif() {
-		return this.rif;
-	}
-
-	public void setRif(String rif) {
-		this.rif = rif;
-	}
-
 	public String getEmpresa() {
 		return this.empresa;
 	}
 
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
+	}
+
+	public String getTlf() {
+		return this.tlf;
+	}
+
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
 	}
 
 	public Set<Producto> getProductos() {

@@ -1,5 +1,5 @@
 package com.Facturador.modelo;
-// Generated 16-ene-2016 16:35:10 by Hibernate Tools 4.0.0
+// Generated 18-ene-2016 15:29:18 by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,22 +11,26 @@ public class Cliente implements java.io.Serializable {
 
 	private int idCedula;
 	private String nombre;
-	private Integer telf;
+	private String telf;
 	private String dir;
-	
+	private Set<Compras> comprases = new HashSet<Compras>(0);
 
 	public Cliente() {
 	}
 
-	public Cliente(int idCedula) {
-		this.idCedula = idCedula;
-	}
-
-	public Cliente(int idCedula, String nombre, Integer telf, String dir) {
+	public Cliente(int idCedula, String nombre, String telf, String dir) {
 		this.idCedula = idCedula;
 		this.nombre = nombre;
 		this.telf = telf;
 		this.dir = dir;
+	}
+
+	public Cliente(int idCedula, String nombre, String telf, String dir, Set<Compras> comprases) {
+		this.idCedula = idCedula;
+		this.nombre = nombre;
+		this.telf = telf;
+		this.dir = dir;
+		this.comprases = comprases;
 	}
 
 	public int getIdCedula() {
@@ -45,11 +49,11 @@ public class Cliente implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Integer getTelf() {
+	public String getTelf() {
 		return this.telf;
 	}
 
-	public void setTelf(Integer telf) {
+	public void setTelf(String telf) {
 		this.telf = telf;
 	}
 
@@ -61,13 +65,12 @@ public class Cliente implements java.io.Serializable {
 		this.dir = dir;
 	}
 
-	/**public Set<Pedido> getPedidos() {
-		return this.pedidos;
+	public Set<Compras> getComprases() {
+		return this.comprases;
 	}
 
-	public void setPedidos(Set<Pedido> pedidos) {
-		this.pedidos = pedidos;
+	public void setComprases(Set<Compras> comprases) {
+		this.comprases = comprases;
 	}
-	**/
 
 }

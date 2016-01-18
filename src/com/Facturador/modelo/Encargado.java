@@ -1,5 +1,5 @@
 package com.Facturador.modelo;
-// Generated 16-ene-2016 16:35:10 by Hibernate Tools 4.0.0
+// Generated 18-ene-2016 15:29:18 by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,39 +9,36 @@ import java.util.Set;
  */
 public class Encargado implements java.io.Serializable {
 
-	private int id;
+	private int idjefe;
 	private String nombre;
 	private String username;
 	private String pass;
-	private Set<Pedido> pedidos = new HashSet<Pedido>(0);
-	private Set<Producto> productos = new HashSet<Producto>(0);
+	private Set<Compras> comprases = new HashSet<Compras>(0);
 
 	public Encargado() {
 	}
 
-	public Encargado(int id, String nombre, String username, String pass) {
-		this.id = id;
+	public Encargado(int idjefe, String nombre, String username, String pass) {
+		this.idjefe = idjefe;
 		this.nombre = nombre;
 		this.username = username;
 		this.pass = pass;
 	}
 
-	public Encargado(int id, String nombre, String username, String pass, Set<Pedido> pedidos,
-			Set<Producto> productos) {
-		this.id = id;
+	public Encargado(int idjefe, String nombre, String username, String pass, Set<Compras> comprases) {
+		this.idjefe = idjefe;
 		this.nombre = nombre;
 		this.username = username;
 		this.pass = pass;
-		this.pedidos = pedidos;
-		this.productos = productos;
+		this.comprases = comprases;
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdjefe() {
+		return this.idjefe;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdjefe(int idjefe) {
+		this.idjefe = idjefe;
 	}
 
 	public String getNombre() {
@@ -68,20 +65,12 @@ public class Encargado implements java.io.Serializable {
 		this.pass = pass;
 	}
 
-	public Set<Pedido> getPedidos() {
-		return this.pedidos;
+	public Set<Compras> getComprases() {
+		return this.comprases;
 	}
 
-	public void setPedidos(Set<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
-	public Set<Producto> getProductos() {
-		return this.productos;
-	}
-
-	public void setProductos(Set<Producto> productos) {
-		this.productos = productos;
+	public void setComprases(Set<Compras> comprases) {
+		this.comprases = comprases;
 	}
 
 }

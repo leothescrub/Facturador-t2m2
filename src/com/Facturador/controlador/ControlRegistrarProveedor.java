@@ -47,9 +47,9 @@ public class ControlRegistrarProveedor implements ActionListener{
 					String temp = q.provee.textNomPro.getText() + " " +q.provee.textApellPro.getText();
 					String temp3 = q.provee.textEmprPro.getText();
 					String temp4 = q.provee.textRifPro.getText();
-					int id = 1; //Meti un pelo la pata acá, se supone que el rif es el id, pero id esta como integer en la base de datos, hay que rehacerlo.
+					String telf = "04124526464"; //Hay que editar la ventana para agregar la opcion al proveedor a meter su numero
 					System.out.println("Terminó el parseo, comienza la vaina");
-					Proveedor proveedor = new Proveedor(id, temp, temp3, temp4);
+					Proveedor proveedor = new Proveedor(temp4, temp, temp3, telf);
 					System.out.println("Instanceó");
 					try{
 						Session session = Mysql.getSession();

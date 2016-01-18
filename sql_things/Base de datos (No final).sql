@@ -18,23 +18,11 @@ USE `db_Facturador` ;
 -- Table `db_Facturador`.`proveedor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_Facturador`.`proveedor` (
-  `idproveedor` INT NOT NULL,
+  `idrif` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
-  `rif` VARCHAR(45) NOT NULL,
   `empresa` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idproveedor`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `db_Facturador`.`encargado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_Facturador`.`encargado` (
-  `id` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `pass` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  `tlf` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idrif`))
 ENGINE = InnoDB;
 
 
@@ -43,24 +31,29 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_Facturador`.`producto` (
   `idproducto` INT NOT NULL,
-  `proveedor_idproveedor` INT NOT NULL,
-  `encargado_id` INT NOT NULL,
   `nombre` VARCHAR(100) NOT NULL,
   `precio` DECIMAL(10,2) NOT NULL,
-  `stock` INT NOT NULL,
-  PRIMARY KEY (`idproducto`, `proveedor_idproveedor`, `encargado_id`),
-  INDEX `fk_producto_proveedor1_idx` (`proveedor_idproveedor` ASC),
-  INDEX `fk_producto_encargado1_idx` (`encargado_id` ASC),
-  CONSTRAINT `fk_producto_proveedor1`
-    FOREIGN KEY (`proveedor_idproveedor`)
-    REFERENCES `db_Facturador`.`proveedor` (`idproveedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_producto_encargado1`
-    FOREIGN KEY (`encargado_id`)
-    REFERENCES `db_Facturador`.`encargado` (`id`)
+  `stock` INT NULL,
+  `proveedor_idrif` VARCHAR(45) NULL,
+  PRIMARY KEY (`idproducto`),
+  INDEX `fk_producto_proveedor_idx` (`proveedor_idrif` ASC),
+  CONSTRAINT `fk_producto_proveedor`
+    FOREIGN KEY (`proveedor_idrif`)
+    REFERENCES `db_Facturador`.`proveedor` (`idrif`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_Facturador`.`jefe`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_Facturador`.`jefe` (
+  `idjefe` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idjefe`))
 ENGINE = InnoDB;
 
 
@@ -69,32 +62,39 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_Facturador`.`cliente` (
   `id_cedula` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
-  `telf` INT NULL,
-  `dir` VARCHAR(45) NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `telf` VARCHAR(45) NOT NULL,
+  `dir` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_cedula`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_Facturador`.`pedido`
+-- Table `db_Facturador`.`Compras`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_Facturador`.`pedido` (
-  `id_pedido` INT NOT NULL,
-  `cliente_id_cedula` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `db_Facturador`.`Compras` (
   `jefe_idjefe` INT NOT NULL,
-  `fecha` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_pedido`, `cliente_id_cedula`, `jefe_idjefe`),
-  INDEX `fk_pedido_cliente_idx` (`cliente_id_cedula` ASC),
-  INDEX `fk_pedido_jefe1_idx` (`jefe_idjefe` ASC),
-  CONSTRAINT `fk_pedido_cliente`
+  `cliente_id_cedula` INT NOT NULL,
+  `producto_idproducto` INT NOT NULL,
+  `codigoCompra` INT NOT NULL,
+  `fecha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`jefe_idjefe`, `cliente_id_cedula`, `producto_idproducto`, `codigoCompra`),
+  INDEX `fk_producto_has_cliente_cliente1_idx` (`cliente_id_cedula` ASC),
+  INDEX `fk_producto_has_cliente_producto1_idx` (`producto_idproducto` ASC),
+  INDEX `fk_Compras_jefe1_idx` (`jefe_idjefe` ASC),
+  CONSTRAINT `fk_producto_has_cliente_producto1`
+    FOREIGN KEY (`producto_idproducto`)
+    REFERENCES `db_Facturador`.`producto` (`idproducto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_producto_has_cliente_cliente1`
     FOREIGN KEY (`cliente_id_cedula`)
     REFERENCES `db_Facturador`.`cliente` (`id_cedula`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedido_jefe1`
+  CONSTRAINT `fk_Compras_jefe1`
     FOREIGN KEY (`jefe_idjefe`)
-    REFERENCES `db_Facturador`.`encargado` (`id`)
+    REFERENCES `db_Facturador`.`jefe` (`idjefe`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

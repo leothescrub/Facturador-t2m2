@@ -115,6 +115,12 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("New menu item");
 		mnOpcionesDeAdministrador.add(mntmNewMenuItem_6);
+		
+		JMenuItem mntmInventario_1 = new JMenuItem("Inventario");
+		mntmInventario_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/work11.png")));
+		mntmInventario_1.setForeground(Color.RED);
+		mntmInventario_1.setFont(new Font("Goudy Old Style", Font.PLAIN, 14));
+		menuBar.add(mntmInventario_1);
 		PanePrincipal = new JPanel();
 		PanePrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(PanePrincipal);

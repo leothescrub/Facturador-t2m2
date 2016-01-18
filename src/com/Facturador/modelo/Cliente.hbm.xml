@@ -1,21 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 16-ene-2016 16:35:11 by Hibernate Tools 4.0.0 -->
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ene-2016 15:29:18 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
- <class catalog="db_facturador" name="com.Facturador.modelo.Cliente" table="cliente">
-  <id name="idCedula" type="int">
-   <column name="id_cedula"/>
-   <generator class="assigned"/>
-  </id>
-  <property generated="never" lazy="false" name="nombre" type="string">
-   <column length="45" name="nombre"/>
-  </property>
-  <property generated="never" lazy="false" name="telf" type="java.lang.Integer">
-   <column name="telf"/>
-  </property>
-  <property generated="never" lazy="false" name="dir" type="string">
-   <column length="45" name="dir"/>
-  </property>
- </class>
+    <class name="com.Facturador.modelo.Cliente" table="cliente" catalog="db_facturador">
+        <id name="idCedula" type="int">
+            <column name="id_cedula" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="telf" type="string">
+            <column name="telf" length="45" not-null="true" />
+        </property>
+        <property name="dir" type="string">
+            <column name="dir" length="45" not-null="true" />
+        </property>
+        <set name="comprases" table="compras" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cliente_id_cedula" not-null="true" />
+            </key>
+            <one-to-many class="com.Facturador.modelo.Compras" />
+        </set>
+    </class>
 </hibernate-mapping>

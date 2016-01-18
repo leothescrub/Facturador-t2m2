@@ -50,10 +50,9 @@ public class ControlRegistrarCliente implements ActionListener  {
 					int temp_cedu = Integer.parseInt(temp);
 					String temp_nombre = q.clien.textClienNombre.getText()+" "+q.clien.textClienApellido.getText();
 					String temp_telf = q.clien.textClienTelf.getText(); //////////////HEYYYYYYYYYY. Hay que pasar el telefono a String.
-					int temp_tel = Integer.parseInt(temp_telf);
 					String temp_dir = q.clien.textClienDirec.getText();//Parseo de todas las variables a objeto, si conoces una forma mas rapida de hacerla implementala
 					System.out.println("Lo parseo todo, comienza la vaina");
-					Cliente cliente = new Cliente(temp_cedu, temp_nombre, temp_tel, temp_dir); //Instancia al nuevo cliente, con su cedula, nombre, telefono y dirección
+					Cliente cliente = new Cliente(temp_cedu, temp_nombre, temp_telf, temp_dir); //Instancia al nuevo cliente, con su cedula, nombre, telefono y dirección
 					System.out.println("Instanceo");
 					try{
 						Session session = Mysql.getSession();  //Crea el objeto Session usando la funcion getSEssion de la clase Mysql

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 16-ene-2016 16:35:11 by Hibernate Tools 4.0.0 -->
+<!-- Generated 18-ene-2016 15:29:18 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.Facturador.modelo.Encargado" table="encargado" catalog="db_facturador">
-        <id name="id" type="int">
-            <column name="id" />
+        <id name="idjefe" type="int">
+            <column name="idjefe" />
             <generator class="assigned" />
         </id>
         <property name="nombre" type="string">
@@ -17,17 +17,11 @@
         <property name="pass" type="string">
             <column name="pass" length="45" not-null="true" />
         </property>
-        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+        <set name="comprases" table="compras" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="jefe_idjefe" not-null="true" />
             </key>
-            <one-to-many class="com.Facturador.modelo.Pedido" />
-        </set>
-        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="encargado_id" not-null="true" />
-            </key>
-            <one-to-many class="com.Facturador.modelo.Producto" />
+            <one-to-many class="com.Facturador.modelo.Compras" />
         </set>
     </class>
 </hibernate-mapping>
