@@ -1,5 +1,5 @@
 # Facturador en Java
-AplicaciÃ³n realizada en Eclipse Mars con la ayuda de GitHub para el trabajo en equipo, asÃ­ como la creaciÃ³n y estructuraciÃ³n de una documentaciÃ³n *medianamente* decente.
+Aplicación realizada en Eclipse Mars con la ayuda de GitHub para el trabajo en equipo, así como la creación y estructuración de una documentación *medianamente* decente.
 
 
 ----------
@@ -7,34 +7,46 @@ AplicaciÃ³n realizada en Eclipse Mars con la ayuda de GitHub para el trabajo en 
 
  - JRE/JDK 1.8 
  - MySQL >= 5 
- - Manejador de reportes (No determinado todavÃ­a, puede ser Pentaho-Reports, iReports o Jasper Reports)
+ - Manejador de reportes (No determinado todavía, puede ser Pentaho-Reports, iReports o Jasper Reports)
 
 __________________
 
 >##Notas importantes##
-> - Esta documentaciÃ³n puede (Y seguramente debe) estar incompleta, en la secciÃ³n de Issues puedes seÃ±alar deficiencias respecto a la documentaciÃ³n del cÃ³digo o a este README mismo.
-> - Al clonar la carpeta debe afinar la direcciÃ³n de las librerias (la ruta por defecto es /src/com/Facturador/libs) para que la aplicaciÃ³n funcione, puede hacer esto facilmente desde Eclipse en la opciÃ³n `Build Path` > `Add Libraries...`
-> - Ya que la aplicaciÃ³n fue realizada desde Eclipse Mars, es posible que si utiliza versiones anteriores de Eclipse para editar el codigo puedan ocurrir errores, mantÃ©ngase [al filo de las novedades](https://es.wikipedia.org/wiki/Bleeding_edge_technology) y consiga la [ultima versiÃ³n de eclipse](https://eclipse.org/downloads/) si es necesario.
-> - El modelo relacional de la base de datos fue (o serÃ¡) realizado en [MySQL WorkBench](http://dev.mysql.com/downloads/workbench/), y el modelo entidad-relaciÃ³n en [Microsoft Visio 2013](https://thepiratebay.se/torrent/9696046/Microsoft_Visio_Pro_2013_SP1_VL_x86_en-US), ambos modelos agregados al presente README.
+> - Esta documentación puede (Y seguramente debe) estar incompleta, en la sección de Issues puedes señalar deficiencias respecto a la documentación del código o a este README mismo.
+> - Al clonar la carpeta debe afinar la dirección de las librerias (la ruta por defecto es /src/com/Facturador/libs) para que la aplicación funcione, puede hacer esto facilmente desde Eclipse en la opción `Build Path` > `Add Libraries...`
+> - Ya que la aplicación fue realizada desde Eclipse Mars, es posible que si utiliza versiones anteriores de Eclipse para editar el codigo puedan ocurrir errores, manténgase [al filo de las novedades](https://es.wikipedia.org/wiki/Bleeding_edge_technology) y consiga la [ultima versión de eclipse](https://eclipse.org/downloads/) si es necesario.
+> - El modelo relacional de la base de datos fue (o será) realizado en [MySQL WorkBench](http://dev.mysql.com/downloads/workbench/), y el modelo entidad-relación en [Microsoft Visio 2013](https://thepiratebay.se/torrent/9696046/Microsoft_Visio_Pro_2013_SP1_VL_x86_en-US), ambos modelos agregados al presente README.
 
 ____________________________
 
-#Â¿QuÃ© es esto?
+#¿Qué es esto?
 
-Es una aplicaciÃ³n que puede registrar **productos**, emitir **compras**, **ventas**, y generar **facturas** de esas operaciones.
+Es una aplicación que puede registrar **productos**, emitir **compras**, **ventas**, y generar **facturas** de esas operaciones, el mismo también permite registrar clientes y proveedores, así como llevar un inventario de los productos en existencia.
 
 ____________________________
 
-#Modelo Entidad-RelaciÃ³n
+# Diagrama Entidad-Relación
 
-Espera un poco, mas adelante lo agregarÃ©.
+El diagrama entidad-relación fue creado mediante Microsoft Visio 2013, el mismo puede ser encontrado en el directorio `sql_things`
+
+![enter image description here](http://puu.sh/mAlP7/c66f370dcc.png)
 
 __________________________________
 
 # Modelo Relacional
-Espera un poco, mas adelante lo agregarÃ©.
+El modelo relacional fue realizado mediante MySQL WorkBench, el mismo puede ser encontrado en el directorio `sql_things`
 
+![enter image description here](http://puu.sh/myb9x/95c117ae56.png)
+
+Imagen a máxima resolución [acá](http://puu.sh/myb9x/95c117ae56.png)
 
 ----------
 # Script de la base de datos
-Espera un poco, mas adelante lo agregarÃ©.
+
+Puedes usar la misma base de datos que se utilizó para este proyecto si importas el `Base de datos(No final).sql` que se encuentra en la carpeta `sql_things`.
+
+![enter image description here](http://puu.sh/mAknN/0dfd65a587.png) 
+
+Imagen a máxima resolución [acá](http://puu.sh/mAknN/0dfd65a587.png)
+
+En el botón `Seleccionar archivo` marcamos el script y seleccionamos `Continuar`
