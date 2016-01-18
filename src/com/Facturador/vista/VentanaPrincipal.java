@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
+import com.Facturador.controlador.ControlRegistrarProducto;
 import com.Facturador.controlador.ControlVentanaPrincipal;
 import java.awt.Toolkit;
 import java.awt.Component;
@@ -72,6 +72,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmRegistrarProbedor = new JMenuItem("Registrar proveedor");
+		mntmRegistrarProbedor.addActionListener(new ControlVentanaPrincipal(this, "RegisProveed"));
 		mnNewMenu.add(mntmRegistrarProbedor);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registrar Cliente");
@@ -79,6 +80,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Registrar producto");
+		mntmNewMenuItem_2.addActionListener(new ControlVentanaPrincipal(this, "RegisProduc"));
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JMenu mnNewMenu_1 = new JMenu("Operaciones");

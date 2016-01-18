@@ -47,7 +47,7 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 			
 			if(this.cha.equals("RegisEncar")){
 				q.encar.setVisible(true);
-				q.VentPrin.setVisible(false);
+				//q.VentPrin.setVisible(false);
 			}		
 			
 					//REGISTRO DE CLIENTE
@@ -55,8 +55,17 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				q.clien.setVisible(true);
 				//q.VentPrin.setVisible(false);
 			}	
+				
+				//REGISTRO DE PRODUCTO
 			
+			if(this.cha.equals("RegisProduc")){
+				q.prudu.setVisible(true);
 			
+			}	
+			if(this.cha.equals("RegisProveed")){
+				q.provee.setVisible(true);
+			
+			}
 		}
 
 }

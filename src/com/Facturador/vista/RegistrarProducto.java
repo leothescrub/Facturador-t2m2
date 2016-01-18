@@ -6,23 +6,31 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.Facturador.controlador.ControlRegistrarProducto;
+import com.Facturador.controlador.ControlVentanaPrincipal;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegistrarProducto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textDescProd;
-	private JTextField textPreProd;
-	private JTextField textIdProd;
+	public static JTextField textDescProd;
+	public static JTextField textPreProd;
+	public static JTextField textIdProd;
 
 	/**
 	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,13 +43,13 @@ public class RegistrarProducto extends JFrame {
 			}
 		});
 	}
-
+ */
 	/**
 	 * Create the frame.
 	 */
 	public RegistrarProducto() {
 		setTitle("REGISTRAR PRODUCTO");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 319);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,27 +80,38 @@ public class RegistrarProducto extends JFrame {
 		contentPane.add(lblCodigoDeProducto);
 		
 		textDescProd = new JTextField();
+		RestrictedTextField restridesc = new RestrictedTextField(textDescProd);
+		restridesc.setOnlyText(true);
+		restridesc.setLimit(25);
 		textDescProd.setColumns(10);
 		textDescProd.setBounds(162, 83, 124, 20);
 		contentPane.add(textDescProd);
 		
 		textPreProd = new JTextField();
+		RestrictedTextField restriProd = new RestrictedTextField(textPreProd);
+		restriProd.setOnlyNums(true);
+		restriProd.setLimit(8);
 		textPreProd.setColumns(10);
 		textPreProd.setBounds(162, 118, 124, 20);
 		contentPane.add(textPreProd);
 		
 		textIdProd = new JTextField();
+		RestrictedTextField restriId = new RestrictedTextField(textIdProd);
+		restriId.setOnlyNums(true);
+		restriId.setLimit(18);
 		textIdProd.setColumns(10);
 		textIdProd.setBounds(162, 157, 124, 20);
 		contentPane.add(textIdProd);
 		
 		JButton butCancProd = new JButton("CANCELAR");
+		butCancProd.addActionListener(new ControlRegistrarProducto(this, "CanceProduc"));
 		butCancProd.setForeground(Color.RED);
 		butCancProd.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
 		butCancProd.setBounds(51, 219, 101, 36);
 		contentPane.add(butCancProd);
 		
 		JButton butGuarProd = new JButton("GUARDAR");
+		butGuarProd.addActionListener(new ControlRegistrarProducto(this, "GuarProduc"));
 		butGuarProd.setForeground(Color.RED);
 		butGuarProd.setFont(new Font("Baskerville Old Face", Font.PLAIN, 12));
 		butGuarProd.setBounds(185, 219, 101, 36);
