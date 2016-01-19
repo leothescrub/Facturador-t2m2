@@ -30,25 +30,6 @@ public class RegistroDeEncargado extends JFrame {
 	public static JTextField textPass;
 	public static JTextField textCeduEncar;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegistroDeEncargado frame = new RegistroDeEncargado();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	/**
-	 * Create the frame.
-	 */
 	public RegistroDeEncargado() {
 		setTitle("REGISTRO DE ENCARGADO");
 		setResizable(false);
