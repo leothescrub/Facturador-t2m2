@@ -9,17 +9,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import com.Facturador.controlador.ControlInventario;
 import com.Facturador.controlador.ControlVentanaPrincipal;
+import com.Facturador.modelo.Mysql;
+import com.Facturador.modelo.Producto;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,28 +31,11 @@ import java.awt.event.ActionEvent;
 public class Inventario extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable productosJtable;
 	private JTextField texDescrBus;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Inventario frame = new Inventario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
+		
+	
 	public Inventario() {
 		setTitle("INVENTARIO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -64,15 +51,18 @@ public class Inventario extends JFrame {
 		scrollPane.setBounds(25, 104, 387, 234);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		
+		
+		
+		productosJtable = new JTable();
+		productosJtable.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
 				"IdProducto", "Descriccion", "Cantidad", "Precio"
 			}
 		));
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(productosJtable);
 		
 		JLabel lblIdproducto = new JLabel("Descriccion:");
 		lblIdproducto.setBounds(25, 65, 75, 14);

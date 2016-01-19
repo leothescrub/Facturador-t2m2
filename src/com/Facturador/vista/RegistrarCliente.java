@@ -30,25 +30,6 @@ public class RegistrarCliente extends JFrame {
 	public static JTextField textClienDirec;
 	public static JButton butGuarClien;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegistrarCliente frame = new RegistrarCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public RegistrarCliente() {
 		setTitle("REGISTRAR CLIENTE");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

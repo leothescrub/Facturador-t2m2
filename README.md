@@ -25,6 +25,29 @@ Es una aplicación que puede registrar **productos**, emitir **compras**, **venta
 
 ____________________________
 
+#¿Cómo obtengo el proyecto?
+Hay dos formas:
+>##Importando el proyecto manualmente a Eclipse##
+> - Descargando el ZIP desde [acá](https://github.com/leothescrub/Facturador-t2m2/archive/master.zip) y luego importarlo al Workspace desde Eclipse.
+
+_____________________________
+
+>##Clonando el repositorio desde Eclipse (Mars) con GitHub##
+> - Click derecho en el workspace, luego Import...
+
+> - Git > Projects from Git
+> - ![Topkek](http://puu.sh/mB0yW/607fd567f3.png)
+> - Clone URL
+> - Copiar la url del .git (https://github.com/leothescrub/Facturador-t2m2.git)
+> - ![enter image description here](http://puu.sh/mB0CM/2776ec7a1d.png)
+> - (No es necesario tener cuenta, es mera formalidad)
+> - Seleccionar el Branch `Master`, luego Next
+> - Seleccionar el destino
+> - Marcar "Import Existing Eclipse Proyects"
+> - Fin.
+
+__________________________________
+
 # Diagrama Entidad-Relación
 
 El diagrama entidad-relación fue creado mediante Microsoft Visio 2013, el mismo puede ser encontrado en el directorio `sql_things`

@@ -2,7 +2,13 @@ package com.Facturador.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.Facturador.modelo.Mysql;
+import com.Facturador.modelo.Producto;
 import com.Facturador.vista.Inventario;
 import com.Facturador.vista.RegistrarCliente;
 
@@ -19,7 +25,6 @@ public class ControlInventario implements ActionListener{
 	    }
 	   
 	    
-	   
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -27,14 +32,16 @@ public class ControlInventario implements ActionListener{
 			ClasePrincipal q = new ClasePrincipal();
 			
 			 if(this.cha.equals("BusInve")){
-					/*
-					 * 
-					 * Aqui pones la busquedaaaa
-					 * 
-					 */
-				 
-				 
+				 	Session session = Mysql.getSession();
+					String hql = "from Producto";
+					Query query = session.createQuery(hql);
+					List results = query.list();
+					for (int i=0;i<results.size();i++){
+						System.out.println("Nombre"+i+":"+ results.get(i));
+					}
+					displayResult(results);
 				}
+			 
 			 if(this.cha.equals("SALIR")){
 					
 				 q.Invet.setVisible(false);
