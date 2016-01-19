@@ -31,15 +31,15 @@ public class ControlInventario implements ActionListener{
 			
 			ClasePrincipal q = new ClasePrincipal();
 			
-			 if(this.cha.equals("BusInve")){
-				 	Session session = Mysql.getSession();
+			 if(this.cha.equals("BusInve")){ //Intento de consulta fallida a Hibernate, no logramos pasar los resultados de un List a un JTable, o tener el row completo
+				 	/*Session session = Mysql.getSession();
 					String hql = "from Producto";
 					Query query = session.createQuery(hql);
 					List results = query.list();
 					for (int i=0;i<results.size();i++){
 						System.out.println("Nombre"+i+":"+ results.get(i));
-					}
-					displayResult(results);
+					}*/
+					
 				}
 			 
 			 if(this.cha.equals("SALIR")){

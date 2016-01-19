@@ -30,6 +30,7 @@ public class RegistrarCliente extends JFrame {
 	public static JTextField textClienDirec;
 	public static JButton butGuarClien;
 
+	
 	public RegistrarCliente() {
 		setTitle("REGISTRAR CLIENTE");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -48,6 +48,21 @@ _____________________________
 
 __________________________________
 
+#Posibles errores
+>##El proyecto no se puede importar desde Eclipse
+> - El problema radica en que la descarga no se termina de efectuar, para ello vamos a la barra superior de eclipse, en la penultima opción `Window` > `Preferences` > `Team` >`Git` y establecemos el Timeout en una cantidad razonable de tiempo para que se descargue el repositorio (99999 segundos?)
+![Ejemplo](http://puu.sh/mB3EZ/2fa365f3e0.png) 
+
+> - Asegurate de eliminar la carpeta que contiene la descarga fallida, si no lo haces te dará problemas.
+
+>##El login no funciona
+> - Debes correr la aplicación desde `ClasePrincipal.java` que se encuentra en el paquete `com.Facturador.controlador`, de lo contrario sucederá eso 
+
+>##El programa no hace facturas o no consigue las entidades al consultarlas
+> - Heh, chequea el codigo
+
+___________________________________
+
 # Diagrama Entidad-Relación
 
 El diagrama entidad-relación fue creado mediante Microsoft Visio 2013, el mismo puede ser encontrado en el directorio `sql_things`
@@ -59,9 +74,9 @@ __________________________________
 # Modelo Relacional
 El modelo relacional fue realizado mediante MySQL WorkBench, el mismo puede ser encontrado en el directorio `sql_things`
 
-![enter image description here](http://puu.sh/myb9x/95c117ae56.png)
+![enter image description here](http://puu.sh/mB3Ui/04e4d9b927.jpg)
 
-Imagen a máxima resolución [acá](http://puu.sh/myb9x/95c117ae56.png)
+Imagen a máxima resolución [acá](http://puu.sh/mB3Ui/04e4d9b927.jpg)
 
 ----------
 # Script de la base de datos
