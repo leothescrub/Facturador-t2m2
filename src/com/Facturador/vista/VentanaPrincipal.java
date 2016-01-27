@@ -20,8 +20,13 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.Facturador.controlador.ClasePrincipal;
+import com.Facturador.controlador.ControlLogin;
 import com.Facturador.controlador.ControlRegistrarProducto;
 import com.Facturador.controlador.ControlVentanaPrincipal;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+
 import java.awt.Toolkit;
 import java.awt.Component;
 import javax.swing.Box;
@@ -31,7 +36,7 @@ import javax.swing.JScrollPane;
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
 	private JMenuItem mntmNewMenuItem;
-	private JTextField textEncarCompra;
+	public static JTextField textEncarCompra;
 	private JTextField textFechCompr;
 	private JTextField textIdProvCompra;
 	private JTextField textNomCompra;
@@ -41,16 +46,16 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	private JTextField textDescriCompra;
 	private JTextField textCantiCompra;
 	private JTable tableCompra;
-	private JTextField textEncarVenta;
+	public static JTextField textEncarVenta;
 	private JTextField textFechVenta;
-	private JTextField textCeduVenta;
-	private JTextField textNombVenta;
-	private JTextField textTlfVenta;
-	private JTextField textDireccVenta;
-	private JTextField textIdProVenta;
-	private JTextField textDirecVenta;
-	private JTextField textPrecVenta;
-	private JTextField textCantVenta;
+	public static JTextField textCeduVenta;
+	public static JTextField textNombVenta;
+	public static JTextField textTlfVenta;
+	public static JTextField textDireccVenta;
+	public static JTextField textIdProVenta;
+	public static JTextField textDirecVenta;
+	public static JTextField textPrecVenta;
+	public static JTextField textCantVenta;
     private JTable tableVenta;
 	public static  JPanel paneVenta;
 	public static JPanel paneCompra; // se coloca como public static para poder ser modificado desde cualquier clase
@@ -121,11 +126,23 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		setContentPane(PanePrincipal);
 		PanePrincipal.setLayout(null);
 		
+		Calendar calendario = new GregorianCalendar(); //Fecha agregada
+		int MES = calendario.get(Calendar.MONTH)+1;
+		String fecha = calendario.get(Calendar.DATE) + "/" + MES + "/" + calendario.get(Calendar.YEAR);
+		
+		paneCompra = new JPanel();
+		paneCompra.setVisible(false);
+		
 		paneVenta = new JPanel();
 		paneVenta.setVisible(false);
 		paneVenta.setBounds(0, 0, 794, 545);
 		PanePrincipal.add(paneVenta);
 		paneVenta.setLayout(null);
+		
+		JButton btnBuscar = new JButton("");
+		btnBuscar.setBounds(0, 142, 28, 23);
+		btnBuscar.addActionListener(new ControlVentanaPrincipal(this, "btnBuscar"));
+		paneVenta.add(btnBuscar);
 		
 		textTotalFactura = new JTextField();
 		textTotalFactura.setEditable(false);
@@ -187,7 +204,10 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		lblIdDeEncargado.setBounds(32, 57, 117, 33);
 		paneVenta.add(lblIdDeEncargado);
 		
+		
+		
 		textEncarVenta = new JTextField();
+		textEncarVenta.setEditable(false);
 		textEncarVenta.setColumns(10);
 		textEncarVenta.setBounds(159, 67, 130, 17);
 		paneVenta.add(textEncarVenta);
@@ -196,10 +216,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		label_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		label_3.setBounds(613, 63, 46, 20);
 		paneVenta.add(label_3);
-		
-		Calendar calendario = new GregorianCalendar(); //Fecha agregada
-		int MES = calendario.get(Calendar.MONTH)+1;
-		String fecha = calendario.get(Calendar.DATE) + "/" + MES + "/" + calendario.get(Calendar.YEAR);
 		
 		textFechVenta = new JTextField();
 		textFechVenta.setText(fecha);
@@ -216,6 +232,9 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		textCeduVenta = new JTextField();
 		textCeduVenta.setColumns(10);
 		textCeduVenta.setBounds(102, 144, 187, 17);
+		RestrictedTextField cedulaventa = new RestrictedTextField(textCeduVenta);
+		cedulaventa.setOnlyNums(true);
+		cedulaventa.setLimit(8);
 		paneVenta.add(textCeduVenta);
 		
 		JLabel lblDatosDelCliente = new JLabel("DATOS DEL CLIENTE");
@@ -267,6 +286,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(label_10);
 		
 		textIdProVenta = new JTextField();
+		textIdProVenta.setEditable(false);
 		textIdProVenta.setColumns(10);
 		textIdProVenta.setBounds(149, 265, 140, 17);
 		paneVenta.add(textIdProVenta);
@@ -299,6 +319,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(label_13);
 		
 		textCantVenta = new JTextField();
+		textCantVenta.setEditable(false);
 		textCantVenta.setColumns(10);
 		textCantVenta.setBounds(149, 293, 140, 17);
 		paneVenta.add(textCantVenta);
@@ -325,9 +346,6 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
 		lblNewLabel.setBounds(0, 0, 794, 534);
 		paneVenta.add(lblNewLabel);
-		
-		paneCompra = new JPanel();
-		paneCompra.setVisible(false);
 		paneCompra.setBounds(0, 0, 794, 535);
 		PanePrincipal.add(paneCompra);
 		paneCompra.setLayout(null);

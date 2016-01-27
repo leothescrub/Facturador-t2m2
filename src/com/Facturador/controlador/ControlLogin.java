@@ -14,7 +14,7 @@ import com.Facturador.vista.Login;
 public class ControlLogin implements ActionListener{
 	private  Login escu; 
 	private String cha;
-	
+	public static String log;
 	ClasePrincipal q = new ClasePrincipal();
 	public void Login(){
 		JOptionPane.showMessageDialog(escu, "Si es tu primera vez usando el programa, debes saber que las cuentas estan guardadas en la entidad 'Encargado' de la BD");
@@ -37,6 +37,8 @@ public class ControlLogin implements ActionListener{
 					JOptionPane.showMessageDialog(escu, "Bienvenido "+q.Log.textUser.getText(), "Datos correctos", JOptionPane.DEFAULT_OPTION);
 					q.Log.setVisible(false);
 					q.VentPrin.setVisible(true);
+					q.VentPrin.textEncarVenta.setText(q.Log.textUser.getText());
+					q.VentPrin.textEncarCompra.setText(q.Log.textUser.getText());
 				}else{
 					JOptionPane.showMessageDialog(escu, "Verifique su contraseña e intente de nuevo", "Datos incorrectos", JOptionPane.ERROR_MESSAGE);
 				}

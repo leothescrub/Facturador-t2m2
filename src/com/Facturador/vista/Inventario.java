@@ -35,7 +35,7 @@ public class Inventario extends JFrame {
 
 	private JPanel contentPane;
 	private JTable productosJtable;
-	private JTextField texDescrBus;
+	public JTextField texDescrBus;
 	
 	String[][]matriz={};
 	String[]vector={"ID", "Descripción", "Precio", "Stock", "Proveedor"};
@@ -110,8 +110,9 @@ public class Inventario extends JFrame {
 		
 		texDescrBus = new JTextField();
 		RestrictedTextField restriDes = new RestrictedTextField(texDescrBus);
-		restriDes.setOnlyText(true);
+		restriDes.setOnlyText(false);
 		restriDes.setLimit(20);
+		restriDes.setAcceptSpace(true);
 		texDescrBus.setBounds(437, 178, 86, 20);
 		contentPane.add(texDescrBus);
 		texDescrBus.setColumns(10);

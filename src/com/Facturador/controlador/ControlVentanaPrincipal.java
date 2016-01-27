@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.hibernate.Query;
@@ -12,6 +13,7 @@ import org.hibernate.Session;
 
 import com.Facturador.vista.Inventario;
 import com.Facturador.vista.VentanaPrincipal;
+import com.Facturador.modelo.Cliente;
 import com.Facturador.modelo.Mysql;
 import com.Facturador.modelo.Producto;
 import com.Facturador.modelo.Proveedor;
@@ -27,7 +29,32 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 	        this.cha=cha;    //se tranfieren los datos a variables globales 
 	    }
 	    
-	    
+	    public void queryClienteVenta(){
+	    	ClasePrincipal q = new ClasePrincipal();
+	    	if (q.VentPrin.textCeduVenta.getText().equals("")){
+	    		JOptionPane.showMessageDialog(null, "Debes ingresar una cedula");
+	    	}else{
+	    		Session session = Mysql.getSession();
+	    		String hql = "FROM Cliente E WHERE E.idCedula = :Ced";
+	    		Query query = session.createQuery(hql);
+	    		int cedula = Integer.parseInt(q.VentPrin.textCeduVenta.getText());
+	    		query.setParameter("Ced", cedula);
+				List results = query.list();
+				Cliente cliente = new Cliente();
+				if (results.size()==0){
+					JOptionPane.showMessageDialog(null, "La cedula que ingresó no existe en nuestra base de datos");
+				}else{
+					for (int i=0;i<results.size();i++){
+						cliente = (Cliente)results.get(i);
+						q.VentPrin.textNombVenta.setText(cliente.getNombre());
+						q.VentPrin.textTlfVenta.setText(cliente.getTelf());
+						q.VentPrin.textDireccVenta.setText(cliente.getDir());
+					}
+					q.VentPrin.textIdProVenta.setEditable(true);
+					session.close();
+				}
+	    	}
+	    }
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -85,6 +112,10 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				q.Invet.setVisible(true);
 				q.Invet.clearTable(); //Limpia la tabla por si tenia datos
 				q.Invet.getBase(); //Llena la tabla con datos actualizados
+			}
+			
+			if(this.cha.equals("btnBuscar")){
+				queryClienteVenta();
 			}
 			
 		}
