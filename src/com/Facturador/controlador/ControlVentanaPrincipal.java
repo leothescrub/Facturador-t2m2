@@ -2,8 +2,19 @@ package com.Facturador.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.List;
 
+import javax.swing.table.DefaultTableModel;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.Facturador.vista.Inventario;
 import com.Facturador.vista.VentanaPrincipal;
+import com.Facturador.modelo.Mysql;
+import com.Facturador.modelo.Producto;
+import com.Facturador.modelo.Proveedor;
 
 public class ControlVentanaPrincipal implements ActionListener {//se implementa el tipo de ventos que controlara esta clase luego se presiona en el bombillo se seleciona implementar metos inerentes
 	private  VentanaPrincipal escu; //see creea un objeto vacio de la clase ventanaprincipal
@@ -15,6 +26,8 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 	                          // esta clase.
 	        this.cha=cha;    //se tranfieren los datos a variables globales 
 	    }
+	    
+	    
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -68,12 +81,9 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 			}
 			//INVENTARIO
 			if(this.cha.equals("Inventario")){
+				
 				q.Invet.setVisible(true);
-			/*
-			 * Aqui debe ir el seteo de datos a la tabla para 
-			 * cuando se abra el inventario ya esten hay
-			 *
-			 */
+				q.Invet.getBase();
 			}
 			
 		}

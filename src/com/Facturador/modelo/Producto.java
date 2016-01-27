@@ -26,14 +26,12 @@ public class Producto implements java.io.Serializable {
 		this.precio = precio;
 	}
 
-	public Producto(int idproducto, Proveedor proveedor, String nombre, BigDecimal precio, Integer stock,
-			Set<Compras> comprases) {
+	public Producto(int idproducto, Proveedor proveedor, String nombre, BigDecimal precio, Integer stock) {
 		this.idproducto = idproducto;
 		this.proveedor = proveedor;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
-		this.comprases = comprases;
 	}
 
 	public int getIdproducto() {
