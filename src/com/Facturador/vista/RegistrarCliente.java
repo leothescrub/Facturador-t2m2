@@ -18,6 +18,8 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class RegistrarCliente extends JFrame {
@@ -95,6 +97,15 @@ public class RegistrarCliente extends JFrame {
 		restriApell.setLimit(20);
 		textClienApellido.setColumns(10);
 		textClienApellido.setBounds(137, 93, 124, 20);
+		textClienApellido.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textClienApellido);
 		
 		textClienNombre = new JTextField();
@@ -103,6 +114,15 @@ public class RegistrarCliente extends JFrame {
 		restriNom.setLimit(20);
 		textClienNombre.setColumns(10);
 		textClienNombre.setBounds(137, 58, 124, 20);
+		textClienNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textClienNombre);
 		
 		textClienCedu = new JTextField();
@@ -128,6 +148,15 @@ public class RegistrarCliente extends JFrame {
 		restriDirecc.setLimit(40);
 		textClienDirec.setColumns(10);
 		textClienDirec.setBounds(137, 212, 172, 20);
+		textClienDirec.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textClienDirec);
 		
 		JLabel label = new JLabel("");

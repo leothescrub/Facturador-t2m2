@@ -70,6 +70,13 @@ public class Inventario extends JFrame {
 		session.close(); 
 	}
 	
+	public void clearTable(){
+		int rowCount = modelo.getRowCount();
+		for (int i=rowCount-1;i>=0;i--){
+			modelo.removeRow(i);
+		}
+	}
+	
 	public Inventario() {
 		setTitle("INVENTARIO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

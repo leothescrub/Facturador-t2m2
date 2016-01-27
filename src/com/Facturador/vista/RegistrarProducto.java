@@ -19,6 +19,8 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class RegistrarProducto extends JFrame {
@@ -86,6 +88,15 @@ public class RegistrarProducto extends JFrame {
 		restridesc.setLimit(25);
 		textDescProd.setColumns(10);
 		textDescProd.setBounds(162, 83, 124, 20);
+		textDescProd.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textDescProd);
 		
 		textPreProd = new JTextField();

@@ -83,7 +83,8 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 			if(this.cha.equals("Inventario")){
 				
 				q.Invet.setVisible(true);
-				q.Invet.getBase();
+				q.Invet.clearTable(); //Limpia la tabla por si tenia datos
+				q.Invet.getBase(); //Llena la tabla con datos actualizados
 			}
 			
 		}

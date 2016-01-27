@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class RegistroDeEncargado extends JFrame {
@@ -59,6 +61,15 @@ public class RegistroDeEncargado extends JFrame {
 		restriApell.setOnlyText(true);
 		restriApell.setLimit(20);
 		textApeEncargado.setBounds(142, 107, 124, 20);
+		textApeEncargado.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textApeEncargado);
 		textApeEncargado.setColumns(10);
 		
@@ -109,6 +120,15 @@ public class RegistroDeEncargado extends JFrame {
 		RestrictedTextField restriNom = new RestrictedTextField(textNomEncargado);
 		restriNom.setOnlyText(true);
 		restriNom.setLimit(20);
+		textNomEncargado.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		
 		JLabel lblCedula = new JLabel("CEDULA:");
 		lblCedula.setForeground(new Color(0, 0, 128));

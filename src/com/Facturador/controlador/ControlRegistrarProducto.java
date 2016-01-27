@@ -26,6 +26,12 @@ public class ControlRegistrarProducto implements ActionListener{
 	                          
 	        this.cha=cha;    
 	    }
+	    
+	    public void clearFields(){ //Creado para ahorrar codigo repetido
+	    	ClasePrincipal.prudu.textDescProd.setText("");
+	    	ClasePrincipal.prudu.textIdProd.setText("");
+	    	ClasePrincipal.prudu.textPreProd.setText("");
+	    }
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -34,10 +40,8 @@ public class ControlRegistrarProducto implements ActionListener{
 			
 			if(this.cha.equals("CanceProduc")){
 				q.prudu.setVisible(false);
-			
-				q.prudu.textDescProd.setText("");
-				q.prudu.textIdProd.setText("");
-				q.prudu.textPreProd.setText("");
+				clearFields();
+				
 			}	
 
 			if(this.cha.equals("GuarProduc")){
@@ -49,9 +53,10 @@ public class ControlRegistrarProducto implements ActionListener{
 					String temp = q.prudu.textDescProd.getText();
 					String temp3 = q.prudu.textIdProd.getText();
 					int temp_id = Integer.parseInt(temp3);
+					int inv = 0;
 					BigDecimal temp_pre = new BigDecimal(q.prudu.textPreProd.getText());
 					System.out.println("Terminó el parseo, comienza la vaina");
-					Producto producto = new Producto(temp_id, temp, temp_pre);
+					Producto producto = new Producto(temp_id, temp, temp_pre, inv);
 					System.out.println("Instanceó");
 					try{
 						Session session = Mysql.getSession();
@@ -73,9 +78,7 @@ public class ControlRegistrarProducto implements ActionListener{
 						JOptionPane.showMessageDialog(escu, "Ha ocurrido un error no controlado: "+lel+"\nContacta a los desarrolladores", "Error", JOptionPane.ERROR_MESSAGE); 
 					}
 					finally{
-						q.prudu.textDescProd.setText("");
-						q.prudu.textIdProd.setText("");
-						q.prudu.textPreProd.setText("");
+						clearFields();
 					}
 				}
 			}	

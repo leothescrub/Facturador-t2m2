@@ -27,14 +27,12 @@ public class ControlLogin implements ActionListener{
 			Query query = session.createQuery(hql);
 			query.setParameter("Usr", q.Log.textUser.getText());
 			List results = query.list();
-			System.out.println(results.size());
 			if(results.size()==1){
 				String pass = q.Log.textPass.getText();
 				hql = "FROM Encargado E WHERE E.pass = :Pass";
 				query = session.createQuery(hql);
 				query.setParameter("Pass", q.Log.textPass.getText());
 				results = query.list();
-				System.out.println(results.size());
 				if (results.size()==1){
 					JOptionPane.showMessageDialog(escu, "Bienvenido "+q.Log.textUser.getText(), "Datos correctos", JOptionPane.DEFAULT_OPTION);
 					q.Log.setVisible(false);
@@ -61,7 +59,12 @@ public class ControlLogin implements ActionListener{
 			
 			
 			if(this.cha.equals("Buscar")){
-				Login();
+				try{
+					Login();
+				}catch(org.hibernate.service.spi.ServiceException arg0){
+					JOptionPane.showMessageDialog(escu, "La base de datos está apagada, o no se ha podido conectar.", "Imposible intentar inicio de sesión", JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}	
 		}
 	    

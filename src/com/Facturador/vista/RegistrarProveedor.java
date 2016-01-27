@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class RegistrarProveedor extends JFrame {
@@ -55,6 +57,15 @@ public class RegistrarProveedor extends JFrame {
 		restriNom.setLimit(20);
 		textNomPro.setColumns(10);
 		textNomPro.setBounds(142, 74, 124, 20);
+		textNomPro.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textNomPro);
 		
 		textApellPro = new JTextField();
@@ -63,6 +74,15 @@ public class RegistrarProveedor extends JFrame {
 		restriApell.setLimit(20);
 		textApellPro.setColumns(10);
 		textApellPro.setBounds(142, 109, 124, 20);
+		textApellPro.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textApellPro);
 		
 		JLabel lblRif = new JLabel("RIF:");
@@ -91,6 +111,15 @@ public class RegistrarProveedor extends JFrame {
 		restriEmpr.setAcceptSpace(true);
 		textEmprPro.setColumns(10);
 		textEmprPro.setBounds(142, 180, 124, 20);
+		textEmprPro.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char keyChar = arg0.getKeyChar();
+				    if (Character.isLowerCase(keyChar)) {
+				      arg0.setKeyChar(Character.toUpperCase(keyChar));
+				    }
+			}
+		});
 		contentPane.add(textEmprPro);
 		
 		JButton butGuarPro = new JButton("GUARDAR");

@@ -20,10 +20,11 @@ public class Producto implements java.io.Serializable {
 	public Producto() {
 	}
 
-	public Producto(int idproducto, String nombre, BigDecimal precio) {
+	public Producto(int idproducto, String nombre, BigDecimal precio, Integer stock) {
 		this.idproducto = idproducto;
 		this.nombre = nombre;
 		this.precio = precio;
+		this.stock = stock;
 	}
 
 	public Producto(int idproducto, Proveedor proveedor, String nombre, BigDecimal precio, Integer stock) {
