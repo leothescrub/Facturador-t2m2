@@ -55,6 +55,58 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 				}
 	    	}
 	    }
+	    
+	    public void queryProductoVenta(){
+	    	ClasePrincipal q = new ClasePrincipal();
+	    	if (q.VentPrin.textIdProVenta.getText().equals("")){
+	    		JOptionPane.showMessageDialog(null, "Debes ingresar algun id de producto");
+	    	}else{
+	    		Session session = Mysql.getSession();
+	    		String hql = "FROM Producto E WHERE E.idproducto = :Id";
+	    		Query query = session.createQuery(hql);
+	    		int id = Integer.parseInt(q.VentPrin.textIdProVenta.getText());
+	    		query.setParameter("Id", id);
+	    		List results = query.list();
+	    		Producto producto = new Producto();
+	    		if (results.size()==0){
+	    			JOptionPane.showMessageDialog(null, "El ID de producto que ingresó no existe en nuestra base de datos");
+	    		}else{
+	    			for (int i=0;i<results.size();i++){
+	    				producto = (Producto)results.get(i);
+	    				q.VentPrin.textDirecVenta.setText(producto.getNombre());
+	    				q.VentPrin.textPrecVenta.setText(producto.getPrecio().toString());	
+	    			}
+	    			q.VentPrin.textCantVenta.setEditable(true);
+	    			session.close();
+	    		}
+	    	}
+	    }
+	    
+	    public void addProducto(){
+	    	ClasePrincipal q = new ClasePrincipal();
+	    	if (q.VentPrin.textDirecVenta.getText().equals("") || q.VentPrin.textCantVenta.getText().equals("")){
+	    		JOptionPane.showMessageDialog(null, "Hay campos en blanco o con información incorrecta");
+	    	}else{
+	    		String[] ayy ={q.VentPrin.textIdProVenta.getText(), q.VentPrin.textDirecVenta.getText(), q.VentPrin.textCantVenta.getText(), q.VentPrin.textPrecVenta.getText(), q.VentPrin.textTotalxProducto.getText()};
+	    		q.VentPrin.venta.addRow(ayy);
+	    		q.VentPrin.textIdProVenta.setText("");
+	    		q.VentPrin.textDirecVenta.setText("");
+	    		q.VentPrin.textPrecVenta.setText("");
+	    		q.VentPrin.textTotalxProducto.setText("");
+	    		String prueba = "0";
+	    		for (int i=0;i<q.VentPrin.venta.getRowCount();i++){
+	    			String temp = (String) q.VentPrin.venta.getValueAt(i, 4);
+	    			System.out.println("Se imprime temp "+temp);
+	    			BigDecimal zero = new BigDecimal(prueba);
+	    			BigDecimal income = new BigDecimal(temp);
+	    			System.out.println("Se imprime income "+income);
+	    			BigDecimal total = zero.add(income);
+	    			System.out.println("Se imprime total "+total);
+	    			q.VentPrin.textTotalFactura.setText(total.toString());
+	    			prueba = total.toString();
+	    		}
+	    	}
+	    }
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -116,6 +168,13 @@ public class ControlVentanaPrincipal implements ActionListener {//se implementa 
 			
 			if(this.cha.equals("btnBuscar")){
 				queryClienteVenta();
+			}
+			
+			if (this.cha.equals("btnBuscarId")){
+				queryProductoVenta();
+			}
+			if (this.cha.equals("butCargarVenta")){
+				addProducto();
 			}
 			
 		}

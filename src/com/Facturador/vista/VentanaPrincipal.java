@@ -32,6 +32,9 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
 
 public class VentanaPrincipal extends JFrame { //Se crea la clase ventana principal
 	private JPanel PanePrincipal;
@@ -56,11 +59,14 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 	public static JTextField textDirecVenta;
 	public static JTextField textPrecVenta;
 	public static JTextField textCantVenta;
-    private JTable tableVenta;
+    public static JTable tableVenta;
 	public static  JPanel paneVenta;
 	public static JPanel paneCompra; // se coloca como public static para poder ser modificado desde cualquier clase
-	private JTextField textTotalxProducto;
-	private JTextField textTotalFactura;
+	public static JTextField textTotalxProducto;
+	public static JTextField textTotalFactura;
+	String[][]matriz={};
+	String[]vector={"ID", "Descripción", "Cantidad", "Precio por Unidad", "Total del producto"};
+	public DefaultTableModel venta = new DefaultTableModel(matriz,vector);
 	public VentanaPrincipal() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/com/Facturador/images/cash4.png")));
 		setResizable(false);
@@ -142,6 +148,18 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		JButton btnBuscar = new JButton("");
 		btnBuscar.setBounds(0, 142, 28, 23);
 		btnBuscar.addActionListener(new ControlVentanaPrincipal(this, "btnBuscar"));
+		
+		JButton btnBuscarId = new JButton("");
+		btnBuscarId.setBounds(0, 257, 28, 23);
+		btnBuscarId.addActionListener(new ControlVentanaPrincipal (this, "btnBuscarId"));
+		
+		JLabel lblError = new JLabel("Cantidad no puede estar vacio!");
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblError.setForeground(new Color(255, 0, 0));
+		lblError.setBounds(32, 316, 257, 14);
+		lblError.setVisible(false);
+		paneVenta.add(lblError);
+		paneVenta.add(btnBuscarId);
 		paneVenta.add(btnBuscar);
 		
 		textTotalFactura = new JTextField();
@@ -161,13 +179,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(scrollPaneVentas);
 		
 		tableVenta = new JTable();
-		tableVenta.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID", "Descripción", "Cantidad", "Precio por Unidad", "Total del producto"
-			}
-		));
+		tableVenta.setModel(venta);
 		tableVenta.getColumnModel().getColumn(0).setPreferredWidth(40);
 		scrollPaneVentas.setViewportView(tableVenta);
 		tableVenta.setSurrendersFocusOnKeystroke(true);
@@ -319,6 +331,32 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		paneVenta.add(label_13);
 		
 		textCantVenta = new JTextField();
+		textCantVenta.setText("1");
+		textCantVenta.addKeyListener(new KeyAdapter() {
+			/*@Override
+			public void keyTyped(KeyEvent e) {
+				if (textCantVenta.getText().equals("")){
+					System.out.println("Detecta que no hay nada parece");
+				}else{
+					BigDecimal temp =  new BigDecimal(textCantVenta.getText().replace(",", ""));
+					BigDecimal tempo = new BigDecimal(textPrecVenta.getText().replace(",", ""));
+					BigDecimal price = temp.multiply(tempo);
+					textTotalxProducto.setText(price.toString());
+				}
+			}*/
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (textCantVenta.getText().equals("")){
+					lblError.setVisible(true);
+				}else{
+					lblError.setVisible(false);	
+					BigDecimal temp =  new BigDecimal(textCantVenta.getText().replace(",", ""));
+					BigDecimal tempo = new BigDecimal(textPrecVenta.getText().replace(",", ""));
+					BigDecimal price = temp.multiply(tempo);
+					textTotalxProducto.setText(price.toString());
+				}
+			}
+		});
 		textCantVenta.setEditable(false);
 		textCantVenta.setColumns(10);
 		textCantVenta.setBounds(149, 293, 140, 17);
@@ -335,6 +373,7 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		
 		JButton butCargarVenta = new JButton("Cargar producto");
 		butCargarVenta.setBounds(332, 315, 130, 23);
+		butCargarVenta.addActionListener(new ControlVentanaPrincipal(this, "butCargarVenta"));
 		paneVenta.add(butCargarVenta);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -342,10 +381,10 @@ public class VentanaPrincipal extends JFrame { //Se crea la clase ventana princi
 		lblNewLabel_1.setBounds(217, 0, 238, 62);
 		paneVenta.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
-		lblNewLabel.setBounds(0, 0, 794, 534);
-		paneVenta.add(lblNewLabel);
+		JLabel lbBackground = new JLabel("");
+		lbBackground.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/com/Facturador/images/fondo-degradado.jpg")));
+		lbBackground.setBounds(0, 0, 794, 534);
+		paneVenta.add(lbBackground);
 		paneCompra.setBounds(0, 0, 794, 535);
 		PanePrincipal.add(paneCompra);
 		paneCompra.setLayout(null);

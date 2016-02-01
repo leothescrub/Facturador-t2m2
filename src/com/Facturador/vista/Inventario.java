@@ -66,6 +66,7 @@ public class Inventario extends JFrame {
 			String prov = "lol"; //Proveedor está como objeto, mientras se solventa esto... 'lol'
 			String[] ayy = {id, Nombre, Precio.toString(), stk, prov};
 			modelo.addRow(new Object[]{id, Nombre, Precio.toString(), stk, prov});
+			
 		}
 		session.close(); 
 	}
